@@ -1,6 +1,19 @@
 .container {
+  // width: 1024px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+
+  @include for-size(tablet-portrait) {
+    width: 320px;
+  }
+
+  @include for-size(tablet-landscape) {
+    width: 768px;
+  }
+
+  @include for-size(desktop) {
+    width: 1024px;
+  }
 }

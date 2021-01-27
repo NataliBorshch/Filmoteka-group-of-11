@@ -1,0 +1,29 @@
+footer {
+  background-color: $footer-color;
+}
+.box-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 29px 0px;
+
+  .text {
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 1.18;
+    color: $grey;
+  }
+  .link-goit {
+    color: $grey;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: $accent;
+  margin: 0px 5px;
+}

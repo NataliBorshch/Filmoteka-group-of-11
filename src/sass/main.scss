@@ -1,6 +1,10 @@
 @import './normalize.scss';
-@import './components/html.scss';
-@import './components/container.scss';
+@import './utils/placeholder.scss';
 @import './utils/mixin.scss';
+@import './utils/variable.scss';
+@import './components/html.scss';
 @import './components/body.scss';
-@import './components/img.scss';
+@import './components/container.scss';
+@import './components/header.scss';
+@import './img.scss';
+@import './components/footer.scss';

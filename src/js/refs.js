@@ -1,1 +1,3 @@
-const refs = {};
+const refs = {
+  refsInput: document.querySelector('input'),
+};

@@ -13,26 +13,28 @@
 
   <body>
     <header>
-      <div>
-        <div class="container">
+      <div class="header-background">
+        <div class="container header-box">
           <div class="box-logo">
-            <svg class="header-icon">
-              <use href="#"></use>
+            <svg class="header-icon" width="24px" height="24px">
+              <use href="./images/sprite.svg#icon-film"></use>
             </svg>
             <p class="logo-title">Filmoteka</p>
           </div>
           <div class="box-input">
-            <input />
-            <svg>
-              <use href="#"></use>
+            <input class="input" placeholder="Поиск фильмов" />
+            <svg width="12px" height="12px">
+              <use href="./images/sprite.svg#icon-search"></use>
             </svg>
           </div>
 
           <div class="box-nav">
             <nav>
-              <ul>
+              <ul class="nav-list">
                 <li>
-                  <a href="#" class="nav-link">Home</a>
+                  <a class="nav-link" href="./index.html" class="nav-link"
+                    >Home</a
+                  >
                 </li>
                 <li>
                   <a href="#" class="nav-link">my library</a>
@@ -49,15 +51,17 @@
       </div>
     </main>
     <footer>
-      <div>
-        <div class="container">
-          <div>
-            <p>© 2020 | All Rights Reserved | Developed with</p>
-            <svg>
-              <use href="#"></use>
-            </svg>
-            <p>by GoIT Students</p>
-          </div>
+      <div class="container">
+        <div class="box-footer">
+          <p class="text">© 2020 | All Rights Reserved | Developed with</p>
+          <svg class="icon" width="12px" height="12px">
+            <use href="./images/sprite.svg#icon-love"></use>
+          </svg>
+
+          <p class="text">
+            by
+            <a class="link-goit" href="#"> GoIT Students </a>
+          </p>
         </div>
       </div>
     </footer>
