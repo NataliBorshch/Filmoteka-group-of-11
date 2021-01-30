@@ -1,62 +1,96 @@
+.header-box {
+  padding-top: 41px;
+  padding-bottom: 94px;
+}
+
 .box-logo {
   display: flex;
-  .header-icon {
-    background-color: inherit;
+  justify-content: space-between;
+  .icon-logo {
+    background: inherit;
     margin-right: 10px;
   }
+  .title {
+    display: none;
+    @include for-size(tablet-landscape) {
+      display: flex;
+      color: $white;
+      font-family: Roboto;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.16;
+      align-items: center;
+      text-align: center;
+      margin: 0px;
+      margin-top: -46px;
+    }
+  }
 }
 
-.header-box {
+.header-box .nav {
   display: flex;
-  align-items: center;
-  padding-top: 41px;
-  padding-bottom: 97px;
   justify-content: space-between;
 }
-
-.logo-title {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 1.16;
+.list-nav {
+  @extend %list;
   display: flex;
-  align-items: center;
-  text-align: center;
-  color: $white;
-  margin: 0px;
-}
-
-.box-nav {
-  .nav-list {
-    @extend %list;
-    display: flex;
+  .link {
+    padding: 2px;
+    position: relative;
+    text-decoration: none;
+    color: $white;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16px;
+    text-transform: uppercase;
+  }
+  .activ::after {
+    position: absolute;
+    height: 3px;
+    content: '';
+    display: block;
+    background-color: $accent;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
   }
 }
 
-.nav-link {
-  text-decoration: none;
-  color: $white;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.16;
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
-  margin-right: 39px;
+.item-nav {
+  margin-left: 37px;
+  padding-top: 12px;
+  padding-bottom: 38px;
 }
+
+// стили для формы
 .box-input {
-  .input {
-    background-color: inherit;
-    outline: none;
-    border: none;
-    color: $white;
-    width: 336px;
-    border-bottom: 0.5px solid $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -15px;
   }
-  input::placeholder {
-    color: $white;
-    font-size: 14px;
-    line-height: 1.14;
+}
+.input-search {
+  box-sizing: border-box;
+  width: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+  color: $white;
+  border-bottom: 0.5px solid $white;
+  padding: 4px;
+  margin: 0px;
+  @include for-size(tablet-portrait) {
+    max-width: 336px;
   }
+}
+.input-search::placeholder {
+  color: $white;
+  font-size: 14px;
+  line-height: 1.14;
 }

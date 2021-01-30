@@ -12,35 +12,34 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-background">
-        <div class="container header-box">
-          <div class="box-logo">
-            <svg class="header-icon" width="24px" height="24px">
-              <use href="./images/sprite.svg#icon-film"></use>
-            </svg>
-            <p class="logo-title">Filmoteka</p>
-          </div>
-          <div class="box-input">
-            <input class="input" placeholder="Поиск фильмов" />
-            <svg width="12px" height="12px">
-              <use href="./images/sprite.svg#icon-search"></use>
-            </svg>
-          </div>
-
-          <div class="box-nav">
+    <header class="header-background">
+      <div class="container">
+        <div class="header-box">
+          <div class="nav">
+            <div class="box-logo">
+              <a href="./index.html">
+                <svg width="24px" height="24px" class="icon-logo">
+                  <use href="./images/sprite.svg#icon-film"></use>
+                </svg>
+              </a>
+              <h1 class="title">Filmoteka</h1>
+            </div>
             <nav>
-              <ul class="nav-list">
-                <li>
-                  <a class="nav-link" href="./index.html" class="nav-link"
-                    >Home</a
-                  >
+              <ul class="list-nav">
+                <li class="item-nav">
+                  <a class="link activ" href="./index.html">Home</a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">my library</a>
+                <li class="item-nav">
+                  <a class="link" href="#">my library</a>
                 </li>
               </ul>
             </nav>
+          </div>
+          <div class="box-input">
+            <input class="input-search" placeholder=" Поиск фильмов" />
+            <svg class="input-icon" width="12px" height="12px">
+              <use href="./images/sprite.svg#icon-search"></use>
+            </svg>
           </div>
         </div>
       </div>
@@ -53,15 +52,15 @@
     <footer>
       <div class="container">
         <div class="box-footer">
-          <p class="text">© 2020 | All Rights Reserved | Developed with</p>
-          <svg class="icon" width="12px" height="12px">
+          <p class="text">© 2020 | All Rights Reserved |</p>
+
+          <p class="text">Developed with by</p>
+          <svg class="icon" width="12px" height="14px">
             <use href="./images/sprite.svg#icon-love"></use>
           </svg>
-
-          <p class="text">
-            by
-            <a class="link-goit" href="#"> GoIT Students </a>
-          </p>
+          <a class="link-goit text" href="https://goit.ua/" target="_blank"
+            >GoIT Students
+          </a>
         </div>
       </div>
     </footer>

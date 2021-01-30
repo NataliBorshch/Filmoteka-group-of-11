@@ -11,9 +11,13 @@
 
   @include for-size(tablet-landscape) {
     width: 768px;
+    padding-left: 76px;
+    padding-right: 76px;
   }
 
   @include for-size(desktop) {
     width: 1024px;
+    padding-left: 71px;
+    padding-right: 71px;
   }
 }
