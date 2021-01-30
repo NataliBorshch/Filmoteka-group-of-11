@@ -4,11 +4,23 @@ img {
   height: auto;
 }
 
-.header-background {
+.home-background {
   background: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56)
     ),
-    url(../images/home.png);
+    url(../images/home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.library-background {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/library.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

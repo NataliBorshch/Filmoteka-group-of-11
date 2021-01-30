@@ -1,6 +1,9 @@
 .header-box {
   padding-top: 41px;
-  padding-bottom: 94px;
+  padding-bottom: 65px;
+}
+.header {
+  background: black;
 }
 
 .box-logo {
@@ -68,6 +71,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 30px;
   .input-icon {
     display: flex;
     align-items: center;
@@ -93,4 +97,45 @@
   color: $white;
   font-size: 14px;
   line-height: 1.14;
+}
+
+// стили для кнопок библиотеки
+
+.library-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+}
+
+.is-hidden {
+  display: none;
+}
+.btn {
+  background-color: inherit;
+  color: $white;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33px;
+  display: inline;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 15px;
+
+  padding: 20px 38px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $accent;
+    border: 1px solid $accent;
+    outline: inherit;
+  }
+  .activ {
+    background-color: $accent;
+  }
 }

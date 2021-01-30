@@ -12,12 +12,17 @@
   </head>
 
   <body>
-    <header class="header-background">
-      <div class="container">
+    <header class="header">
+      <div class="container header-img home-background">
         <div class="header-box">
           <div class="nav">
             <div class="box-logo">
-              <a href="./index.html">
+              <a
+                href="./index.html"
+                class="logo-home"
+                rel="noopener noreferrer"
+                aria-label="Home-Page"
+              >
                 <svg width="24px" height="24px" class="icon-logo">
                   <use href="./images/sprite.svg#icon-film"></use>
                 </svg>
@@ -27,19 +32,28 @@
             <nav>
               <ul class="list-nav">
                 <li class="item-nav">
-                  <a class="link activ" href="./index.html">Home</a>
+                  <a class="link home activ" href="./index.html">Home</a>
                 </li>
                 <li class="item-nav">
-                  <a class="link" href="#">my library</a>
+                  <a class="link library" href="./index.html">my library</a>
                 </li>
               </ul>
             </nav>
           </div>
           <div class="box-input">
-            <input class="input-search" placeholder=" Поиск фильмов" />
+            <input
+              class="input-search"
+              placeholder=" Поиск фильмов"
+              id="input"
+            />
             <svg class="input-icon" width="12px" height="12px">
               <use href="./images/sprite.svg#icon-search"></use>
             </svg>
+          </div>
+          <div class="library-btn is-hidden">
+            <button class="btn activ">Watched</button>
+
+            <button class="btn">queue</button>
           </div>
         </div>
       </div>
