@@ -15,41 +15,57 @@
     <header class="header">
       <div class="container header-img home-background">
         <div class="header-box">
-          <div class="nav">
+          <div class="nav" id='nav'>
             <div class="box-logo">
               <a
                 href="./index.html"
-                class="logo-home"
+                class="logo-home link-logo"
                 rel="noopener noreferrer"
-                aria-label="Home-Page"
+                aria-label="home-page"
               >
                 <svg width="24px" height="24px" class="icon-logo">
-                  <use href="./images/sprite.svg#icon-film"></use>
-                </svg>
-              </a>
+                  <use href="./images/sprite.svg#icon-film">
+                  </use>
+                  </svg>
+                </a>
               <h1 class="title">Filmoteka</h1>
             </div>
             <nav>
               <ul class="list-nav">
                 <li class="item-nav">
-                  <a class="link home activ" href="./index.html">Home</a>
+                  <a
+                    class="link home activ"
+                    href="./index.html"
+                    aria-label="home-page"
+                    >Home</a
+                  >
                 </li>
                 <li class="item-nav">
-                  <a class="link library" href="./index.html">my library</a>
+                  <a
+                    class="link library"
+                    href="./index.html"
+                    aria-label="library-page"
+                    name='reference'
+                    >my library</a
+                  >
                 </li>
               </ul>
             </nav>
           </div>
-          <div class="box-input">
-            <input
+          <form class="form-search">
+            <input 
               class="input-search"
               placeholder=" Поиск фильмов"
               id="input"
+              name="query"
             />
-            <svg class="input-icon" width="12px" height="12px">
-              <use href="./images/sprite.svg#icon-search"></use>
-            </svg>
-          </div>
+            <button type="submit" class="btn-form" >
+              <svg class="input-icon" width="12px" height="12px">
+                <use href="./images/sprite.svg#icon-search"></use>
+              </svg>
+            </button>
+            
+          </form>
           <div class="library-btn is-hidden">
             <button class="btn activ">Watched</button>
 
@@ -60,7 +76,9 @@
     </header>
     <main>
       <div class="container">
-        <div>Шаблон !!!!!</div>
+        <div>
+          <div class="list-library"></div>
+        </div>
       </div>
     </main>
     <footer>

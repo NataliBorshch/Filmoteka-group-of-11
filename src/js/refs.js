@@ -1,10 +1,11 @@
 export const refs = {
-  refsInput: document.querySelector('.input-search'),
-  linkRefs: document.querySelector('.header-box'),
-  boxInputRef: document.querySelector('.box-input'),
+  refsInput: document.getElementById('input'),
+  navRefs: document.getElementById('nav'),
+  formRef: document.querySelector('.form-search'),
   bntLibraryRef: document.querySelector('.library-btn'),
   linkHome: document.querySelector('.home'),
   linkLibrary: document.querySelector('.library'),
   headerImgRef: document.querySelector('.header-img'),
   LogoRefs: document.querySelector('.logo-home'),
+  GalleryRefs: document.querySelector('.list-library'),
 };

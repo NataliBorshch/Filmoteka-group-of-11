@@ -9,9 +9,12 @@
 .box-logo {
   display: flex;
   justify-content: space-between;
-  .icon-logo {
-    background: inherit;
+  .link-logo{
     margin-right: 10px;
+  }
+  .icon-logo {
+    fill: inherit;
+    pointer-events: none;
   }
   .title {
     display: none;
@@ -66,17 +69,24 @@
   padding-bottom: 38px;
 }
 
+.link-logo {
+  background-color: inherit;
+  width: 24px;
+  height: 24px;
+}
+
 // стили для формы
-.box-input {
+.form-search {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
+  
   .input-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -15px;
+
   }
 }
 .input-search {
@@ -92,6 +102,13 @@
   @include for-size(tablet-portrait) {
     max-width: 336px;
   }
+
+  
+}
+.btn-form{
+  background-color: inherit;
+  border: none;
+  margin-left: -15px;
 }
 .input-search::placeholder {
   color: $white;
