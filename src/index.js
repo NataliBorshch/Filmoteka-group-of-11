@@ -1,28 +1,21 @@
 import './sass/main.scss';
 import { refs } from './js/refs';
 import curentPage from './js/initialHomePage';
-import serviseApi from './js/service';
+import apiService from './js/service';
 
-import * as basicLightbox from 'basiclightbox';
-import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
+import { getdetailsPage } from './js/filmDetailsPage';
 
+// console.log(refs);
 
+// отправляем запрос по сабмину формы
 
+refs.formRef.addEventListener('submit', event => {
+  event.preventDefault();
 
-// console.log(refs)
-
-// refs.formRef.addEventListener('submit',event=>{
-//   event.preventDefault();
-//   console.dir(refs.refsInput.value);
-//   const value = refs.refsInput.value
-//   serviseApi.getFetch(value,refs.GalleryRefs).then(data=> console.log(data))
-// })
-
-
-
-
-
-
+  const value = refs.refsInput.value;
+  apiService.resetPage();
+  apiService.getFetch(value, refs.GalleryRefs);
+});
 
 // меняет стили Home и library
 refs.navRefs.addEventListener('click', event => {
@@ -30,4 +23,11 @@ refs.navRefs.addEventListener('click', event => {
   curentPage(event);
 });
 
-
+refs.GalleryRefs.addEventListener('click', event => {
+  if (event.target.tagName !== 'IMG') {
+    return;
+  }
+  console.dir(event.target.id);
+  const value = event.target.id;
+  getdetailsPage(value);
+});
