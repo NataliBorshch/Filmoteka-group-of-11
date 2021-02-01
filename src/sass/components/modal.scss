@@ -124,6 +124,7 @@ li {
   @include for-size(tablet-landscape) {
     padding-top: 20px;
     justify-content: start;
+    padding-right: 15px;
   }
 }
 
@@ -150,6 +151,9 @@ li {
   }
   .modal-activ {
     background-color: $accent;
+  }
+  @include for-size(tablet-landscape) {
+    margin-right: 15px;
   }
 }
 
