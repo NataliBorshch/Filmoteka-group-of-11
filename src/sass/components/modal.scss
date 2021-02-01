@@ -54,6 +54,10 @@
   }
 }
 
+.modal-poster {
+  padding-top: 20px;
+}
+
 .film-title {
   margin: 0;
   padding-top: 30px;
@@ -140,4 +144,13 @@ li {
 
 .modal-footer {
   background-color: $footer-color;
+}
+
+.list-library {
+  @include for-size(tablet-landscape) {
+    display: flex;
+  }
+  .modal-content {
+    display: block;
+  }
 }
