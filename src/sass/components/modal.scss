@@ -56,6 +56,12 @@
 
 .modal-poster {
   padding-top: 20px;
+  @include for-size(tablet-landscape) {
+    padding-right: 30px;
+    display: flex;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
 .film-title {
@@ -114,6 +120,10 @@ li {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
+  @include for-size(tablet-landscape) {
+    padding-top: 20px;
+    justify-content: start;
+  }
 }
 
 .modal-button {
@@ -149,8 +159,5 @@ li {
 .list-library {
   @include for-size(tablet-landscape) {
     display: flex;
-  }
-  .modal-content {
-    display: block;
   }
 }
