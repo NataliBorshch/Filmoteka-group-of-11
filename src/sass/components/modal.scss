@@ -1,6 +1,15 @@
-.background {
-  background: #e5e5e5;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0px;
+  padding: 0px;
+  margin: 0;
 }
+
+// .background {
+//   background: #e5e5e5;
+// }
 
 .modal-top {
   margin: 0;
@@ -45,12 +54,87 @@
   }
 }
 
-.modal-main .library-btn {
-  .btn {
-    color: black;
-    // .activ {
-    //   color: white;
-    // }
+.film-title {
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.characteristics {
+  display: flex;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.name-characteristics {
+  color: $light-grey;
+  margin-right: 41px;
+}
+
+.vote-accent {
+  color: $white;
+  background: $accent;
+  border-radius: 5px;
+  border: 5px solid inherit;
+  padding: 1px 10px;
+}
+
+.title-film-characteristics {
+  text-transform: uppercase;
+}
+
+.about {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+
+.film-decsription {
+  font-size: 12px;
+  line-height: 1.666;
+}
+
+.modal-library-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.modal-button {
+  width: 136px;
+  background: $white;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  text-transform: uppercase;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.33;
+  margin-right: 15px;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    background-color: $accent;
+    border: 1px solid $accent;
+    outline: inherit;
+  }
+  .modal-activ {
+    background-color: $accent;
   }
 }
 
