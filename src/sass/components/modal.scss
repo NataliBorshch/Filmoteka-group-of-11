@@ -1,0 +1,59 @@
+.background {
+  background: #e5e5e5;
+}
+
+.modal-top {
+  margin: 0;
+  padding-top: 58px;
+  padding-bottom: 158px;
+  @include for-size(tablet-landscape) {
+    padding-top: 41px;
+    padding-bottom: 154px;
+  }
+}
+
+.modal-logo {
+  margin-top: 48px;
+  margin-left: 23px;
+}
+
+.modal-nav {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 40px;
+}
+
+.modal-top .nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-logo .modal-title {
+  margin-top: 10px;
+}
+
+.modal-top .library-btn {
+  @include for-size(tablet-portrait) {
+    display: none;
+  }
+  @include for-size(tablet-landscape) {
+    display: flex;
+  }
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.modal-main .library-btn {
+  .btn {
+    color: black;
+    // .activ {
+    //   color: white;
+    // }
+  }
+}
+
+.modal-footer {
+  background-color: $footer-color;
+}

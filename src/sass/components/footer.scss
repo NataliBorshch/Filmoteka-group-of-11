@@ -1,0 +1,35 @@
+footer {
+  background-color: $footer-color;
+}
+.box-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 29px 0px;
+  text-align: center;
+
+  .text {
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.14;
+    color: $grey;
+    @include for-size(tablet-landscape) {
+      font-size: 16px;
+      line-height: 1.18;
+    }
+  }
+  .link-goit {
+    color: $grey;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: $accent;
+  margin: 0px 5px;
+}

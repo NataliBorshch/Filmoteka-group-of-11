@@ -1,0 +1,71 @@
+{{#each this}}
+
+<div class="background">
+ <div class="container header-img modal-background">
+  <div class="modal-top">
+   <div class="nav" id='nav'>
+    <div class="box-logo">
+     <a href="./index.html" class="logo-home link-logo modal-logo" rel="noopener noreferrer" aria-label="home-page">
+      <svg width="24px" height="24px" class="icon-logo">
+       <use href="./images/sprite.svg#icon-film">
+       </use>
+      </svg>
+     </a>
+     <h1 class="title modal-title">Filmoteka</h1>
+    </div>
+    <nav>
+     <ul class="list-nav modal-nav">
+      <li class="item-nav">
+       <a class="link home activ" href="./index.html" aria-label="home-page">Home</a>
+      </li>
+      <li class="item-nav">
+       <a class="link library" href="./index.html" aria-label="library-page" name='reference'>my library</a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+
+   <div class="library-btn">
+    <button class="btn activ">Watched</button>
+    <button class="btn">queue</button>
+   </div>
+  </div>
+ </div>
+
+ <div class="container modal-main">
+  <div>
+   <div class="list-library">
+    <!-- <img src="" alt=""> -->
+    <h1></h1>
+    <ul>
+     <li>Vote / Votes</li>
+     <li>Popularity</li>
+     <li>Original Title</li>
+     <li>Genre</li>
+    </ul>
+    <h2>About</h2>
+    <p></p>
+   </div>
+
+   <!-- <div class="library-btn">
+      <button class="btn activ">add to Watched</button>
+      <button class="btn">add to queue</button>
+    </div> -->
+  </div>
+ </div>
+</div>
+
+<div class="container modal-footer">
+ <div class="box-footer">
+  <p class="text">© 2020 | All Rights Reserved |</p>
+  <p class="text">Developed with by</p>
+  <svg class="icon" width="12px" height="14px">
+   <use href="./images/sprite.svg#icon-love"></use>
+  </svg>
+  <a class="link-goit text" href="https://goit.ua/" target="_blank">GoIT Students
+  </a>
+ </div>
+</div>
+</div>
+
+{{/each}}

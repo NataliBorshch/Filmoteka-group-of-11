@@ -1,0 +1,59 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.home-background {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.library-background {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/library.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-background {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/modal-320.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include for-size(tablet-landscape) {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/library.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include for-size(desktop) {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/modal-1024.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

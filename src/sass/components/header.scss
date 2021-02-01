@@ -1,0 +1,155 @@
+.header-box {
+  padding-top: 41px;
+  padding-bottom: 65px;
+}
+.header {
+  background: black;
+}
+
+.box-logo {
+  display: flex;
+  justify-content: space-between;
+  .link-logo {
+    margin-right: 10px;
+  }
+  .icon-logo {
+    fill: inherit;
+    pointer-events: none;
+  }
+  .title {
+    display: none;
+    @include for-size(tablet-landscape) {
+      display: flex;
+      color: $white;
+      font-family: Roboto;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.16;
+      align-items: center;
+      text-align: center;
+      margin: 0px;
+      margin-top: -46px;
+    }
+  }
+}
+
+.header-box .nav {
+  display: flex;
+  justify-content: space-between;
+}
+.list-nav {
+  @extend %list;
+  display: flex;
+  .link {
+    padding: 2px;
+    position: relative;
+    text-decoration: none;
+    color: $white;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16px;
+    text-transform: uppercase;
+  }
+  .activ::after {
+    position: absolute;
+    height: 3px;
+    content: '';
+    display: block;
+    background-color: $accent;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
+  }
+}
+
+.item-nav {
+  margin-left: 37px;
+  padding-top: 12px;
+  padding-bottom: 38px;
+}
+
+.link-logo {
+  background-color: inherit;
+  width: 24px;
+  height: 24px;
+}
+
+// стили для формы
+.form-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+
+  .input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.input-search {
+  box-sizing: border-box;
+  width: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+  color: $white;
+  border-bottom: 0.5px solid $white;
+  padding: 4px;
+  margin: 0px;
+  @include for-size(tablet-portrait) {
+    max-width: 336px;
+  }
+}
+.btn-form {
+  background-color: inherit;
+  border: none;
+  margin-left: -15px;
+}
+.input-search::placeholder {
+  color: $white;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+// стили для кнопок библиотеки
+
+.library-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+}
+
+.is-hidden {
+  display: none;
+}
+.btn {
+  background-color: inherit;
+  color: $white;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33px;
+  display: inline;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 15px;
+
+  padding: 20px 38px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $accent;
+    border: 1px solid $accent;
+    outline: inherit;
+  }
+  .activ {
+    background-color: $accent;
+  }
+}
