@@ -18,16 +18,21 @@ refs.formRef.addEventListener('submit', event => {
 });
 
 // меняет стили Home и library
+
 refs.navRefs.addEventListener('click', event => {
   event.preventDefault();
   curentPage(event);
 });
 
+// открытие и закрытие модалки
+
 refs.GalleryRefs.addEventListener('click', event => {
+  event.preventDefault();
   if (event.target.tagName !== 'IMG') {
     return;
   }
-  console.dir(event.target.id);
+  // console.dir(event.target.id);
+  // console.dir(event.target);
   const value = event.target.id;
   getdetailsPage(value);
 });

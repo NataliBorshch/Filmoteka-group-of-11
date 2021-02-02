@@ -1,61 +1,36 @@
-{{!-- <div id="js-details-page-wrapper" class="main__details-page-wrapper"></div> --}}
+<div class="box-modal">
 
- 
-       
-            <div class="box-modal">
-                <button class="btn-modal" id="watch-add">add to Watched</button>
-                <button class="btn-modal" id="queue-add">add to queue</button>
-
-
-                <div class="main__img-wrapper">
-    <img id="js-mainImg" class="main__img" width="100px" height="100px"
+    <div class="box-img" >
+     <img id="modal-img" class="modal-img" 
         src="https://image.tmdb.org/t/p/w500{{poster_path}}"
         data-source="https://image.tmdb.org/t/p/w500{{backdrop_path}}"
         alt="{{original_title}}" />
-</div>
-<div class="main__description-wrapper">
-    <div class="main__description-title-wrapper">
-        <h2 class="main__description-title" id="js-descriptionTitle">{{title}}
-        </h2>
-        <span class="main__description-title main__description-title--year"
-            id="js-descriptionTitle-year"></span>
+
     </div>
-    <table class="main__description-table">
-        <tbody class="main__description-table--tbody">
-            <tr class="main__description-table--tr">
-                <td class="main__description-table--td">vote/votes</td>
-                <td class="main__description-table--td js-tableVote">
-                    {{vote_average}} / {{vote_count}}</td>
-            </tr>
-            <tr class="main__description-table--tr">
-                <td class="main__description-table--td">popularity</td>
-                <td class="main__description-table--td js-tablePopularity">
-                    {{popularity}}</td>
-            </tr>
-            <tr class="main__description-table--tr">
-                <td class="main__description-table--td">original title</td>
-                <td class="main__description-table--td js-tableOriginalTitle">
-                    {{original_title}}</td>
-            </tr>
-            <tr class="main__description-table--tr">
-                <td class="main__description-table--td">genre</td>
-                <td id="js-table-genre"
-                    class="main__description-table--td js-tableGenre"></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3 class="main__description-about">About</h3>
-    <p id="js-descriptionAboutInfo" class="main__description-about--info">
-        {{overview}}</p>
-        
+    <div>
+
+         <div class="box-btn" id="modal-box-bnt">
+                <button class="btn-modal" id="watch-add">add to Watched</button>
+                <button class="btn-modal" id="queue-add">add to queue</button>
+        </div>
+
+    </div>
+
+
+
+   
 </div>
 
 
-            </div>
+
+
             
+
+             
 
 
     
 
 
 
+ 
