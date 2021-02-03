@@ -1,172 +1,3 @@
-// *,
-// *:before,
-// *:after {
-//   box-sizing: inherit;
-//   margin: 0px;
-//   padding: 0px;
-//   margin: 0;
-// }
-
-// .background {
-//   font-family: Roboto, sans-serif;
-//   font-weight: 500;
-// }
-
-// .modal-top {
-//   margin: 0;
-//   padding-top: 58px;
-//   padding-bottom: 158px;
-//   @include for-size(tablet-landscape) {
-//     padding-top: 41px;
-//     padding-bottom: 154px;
-//   }
-// }
-
-// .modal-logo {
-//   margin-top: 48px;
-//   margin-left: 23px;
-// }
-
-// .modal-nav {
-//   display: flex;
-//   margin: 0px;
-//   padding: 0px;
-//   padding-top: 40px;
-// }
-
-// .modal-top .nav {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .box-logo .modal-title {
-//   margin-top: 10px;
-// }
-
-// .modal-top .library-btn {
-//   @include for-size(tablet-portrait) {
-//     display: none;
-//   }
-//   @include for-size(tablet-landscape) {
-//     display: flex;
-//   }
-//   @include for-size(desktop) {
-//     display: none;
-//   }
-// }
-
-// .modal-poster {
-//   padding-top: 20px;
-//   @include for-size(tablet-landscape) {
-//     padding-right: 30px;
-//     display: flex;
-//     padding-top: 60px;
-//     padding-bottom: 60px;
-//   }
-// }
-
-// .film-title {
-//   margin: 0;
-//   padding-top: 30px;
-//   padding-bottom: 20px;
-//   font-size: 20px;
-//   line-height: 1.15;
-//   text-transform: uppercase;
-// }
-
-// .characteristics {
-//   display: flex;
-//   font-size: 12px;
-//   line-height: 1.33;
-// }
-
-// li {
-//   list-style-type: none;
-//   margin-bottom: 10px;
-// }
-
-// .name-characteristics {
-//   color: $light-grey;
-//   margin-right: 41px;
-// }
-
-// .vote-accent {
-//   color: $white;
-//   background: $accent;
-//   border-radius: 5px;
-//   border: 5px solid inherit;
-//   padding: 1px 10px;
-// }
-
-// .title-film-characteristics {
-//   text-transform: uppercase;
-// }
-
-// .about {
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   font-size: 12px;
-//   line-height: 1.33;
-//   text-transform: uppercase;
-// }
-
-// .film-decsription {
-//   font-size: 12px;
-//   line-height: 1.666;
-// }
-
-// .modal-library-btn {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding-top: 40px;
-//   padding-bottom: 40px;
-//   @include for-size(tablet-landscape) {
-//     padding-top: 20px;
-//     justify-content: start;
-//     padding-right: 15px;
-//   }
-// }
-
-// .modal-button {
-//   width: 136px;
-//   background: $white;
-//   border-radius: 5px;
-//   border: 1px solid #000000;
-//   text-transform: uppercase;
-//   align-items: center;
-//   text-align: center;
-//   font-size: 12px;
-//   line-height: 1.33;
-//   // margin-right: 15px;
-//   padding-top: 14px;
-//   padding-bottom: 12px;
-//   &:hover,
-//   &:active,
-//   &:focus {
-//     color: $white;
-//     background-color: $accent;
-//     border: 1px solid $accent;
-//     outline: inherit;
-//   }
-//   .modal-activ {
-//     background-color: $accent;
-//   }
-//   @include for-size(tablet-landscape) {
-//     margin-right: 15px;
-//   }
-// }
-
-// .modal-footer {
-//   background-color: $footer-color;
-// }
-
-// .list-library {
-//   @include for-size(tablet-landscape) {
-//     display: flex;
-//   }
-// }
-
 *,
 *:before,
 *:after {
@@ -174,21 +5,21 @@
   margin: 0;
   padding: 0;
 }
-​ .modal {
+.modal {
   font-family: Roboto, sans-serif;
   font-weight: 500;
 }
-​ ul {
+ul {
   list-style: none;
 }
-​ .btn-modal {
+.btn-modal {
   margin: 0;
   background-color: inherit;
   color: $black;
   min-width: 136px;
   padding: 20px 10px;
   border: 1px solid $black;
-  ​&:hover,
+  ​ &:hover,
   &:active,
   &:focus {
     color: $white;
@@ -199,8 +30,8 @@
     }
   }
 }
-​.modal {
-  &.container {
+.modal {
+  & .container {
     padding-top: 20px;
     padding-bottom: 40px;
     @include for-size(tablet-landscape) {
@@ -221,38 +52,36 @@
     }
   }
 }
-
 .modal__content-title {
   margin: 30px 0 20px;
   text-transform: uppercase;
   color: $black;
   font-size: 20px;
   line-height: 1.17;
-  ​@include for-size(tablet-landscape) {
+  @include for-size(tablet-landscape) {
     margin-top: 0;
     font-size: 30px;
   }
-  ​&.info {
+  &.info {
     margin: 0;
     font-size: 12px;
     line-height: 1.33;
   }
-  ​&.secondary {
+  &.secondary {
     margin-top: 20px;
     font-size: 12px;
     line-height: 1.33;
   }
 }
-
-​.modal__content-info {
+.modal__content-info {
   display: flex;
   font-size: 12px;
   line-height: 1.33;
-  ​ &.name {
+  &.name {
     color: $light-grey;
     margin-right: 40px;
   }
-  ​ &.name,
+  &.name,
   &.value {
     display: block;
     ​ & > li:not(:last-child) {
@@ -260,24 +89,24 @@
     }
   }
 }
-​ .modal__content {
+.modal__content {
   &-decsription {
     font-size: 12px;
     line-height: 1.67;
   }
-  ​&-button {
+  &-button {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    ​@include for-size(tablet-landscape) {
+    @include for-size(tablet-landscape) {
       margin-top: 20px;
     }
-    ​@include for-size(desktop) {
+    @include for-size(desktop) {
       justify-content: start;
     }
   }
 }
-​ .vote-accent {
+.vote-accent {
   color: $white;
   background: $accent;
   border-radius: 5px;
