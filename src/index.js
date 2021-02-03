@@ -2,7 +2,6 @@ import './sass/main.scss';
 import { refs } from './js/refs';
 import curentPage from './js/initialHomePage';
 import apiService from './js/service';
-
 import { getdetailsPage } from './js/filmDetailsPage';
 
 // console.log(refs);
@@ -36,3 +35,4 @@ refs.GalleryRefs.addEventListener('click', event => {
   const value = event.target.id;
   getdetailsPage(value);
 });
+

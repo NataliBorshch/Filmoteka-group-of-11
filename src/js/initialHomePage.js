@@ -22,3 +22,4 @@ export default function createClassList(event) {
   }
   console.dir(event.target.nodeName);
 }
+

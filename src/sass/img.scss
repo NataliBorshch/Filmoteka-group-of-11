@@ -25,10 +25,44 @@ img {
   background-size: cover;
 }
 
-// потом удалить
-.main__film-image {
-  width: 100px;
-  height: 100px;
-  background: url(../images/not-fond.jpg);
+
+.modal-background {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/modal-320.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
-}
+
+  @include for-size(tablet-landscape) {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/library.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include for-size(desktop) {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/modal-1024.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+// // потом удалить
+// .main__film-image {
+//   width: 100px;
+//   height: 100px;
+//   background: url(../images/not-fond.jpg);
+//   background-size: cover;
+// >>>>>>> dev
+// }

@@ -1,12 +1,11 @@
 
 {{#each this}}
  <li id="js-film-item" class="main__film-item js-film-item">
-     
          <div class="main__film-item-wrapper js-film-item-wrapper">
         <a class="gallery-items">
             <img src="https://image.tmdb.org/t/p/w500{{backdrop_path}}"  id="{{id}}"
                 data-source="https://image.tmdb.org/t/p/w500{{poster_path}}"
-                alt="{{original_title}}"
+               alt="{{original_title}}"
                 class="main__film-image js-film-image" />
         </a>
     </div>
@@ -16,12 +15,7 @@
             id="js-filmTitle-year">({{release_date}})</span>
         <p class="stats-item visually-hidden">{{id}}</p>
     </div>
-
-
-
-
-
-     </a>
-    
+     </a>  
 </li>
 {{/each}}
+
