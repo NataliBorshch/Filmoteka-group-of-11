@@ -1,14 +1,14 @@
 import { refs } from './refs';
 import TemplateDetailPage from '../templates/detailsPage.hbs';
 
-console.log(refs);
+// console.log(refs);
 const arrayIdQ = [];
 const arrayIdW = [];
 
 async function getdetailsPage(id) {
   // event.preventDefault();
   const key = '42c4fa9c05708253e8c2f9a05f447e85';
-  console.log(id);
+  // console.log(id);
   const urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`;
   const response = await fetch(urlId);
 
@@ -24,7 +24,7 @@ async function getdetailsPage(id) {
     queue: document.getElementById('queue-add'),
     boxBtn: document.getElementById('modal-box-bnt'),
   };
-  console.log(modalBtn);
+  // console.log(modalBtn);
 
   modalBtn.boxBtn.addEventListener('click', event => {
     if (event.target.nodeName !== 'BUTTON') {

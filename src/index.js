@@ -1,22 +1,20 @@
 import './sass/main.scss';
 import { refs } from './js/refs';
 import curentPage from './js/initialHomePage';
-import apiService from './js/service';
+import FetchQueryApiService from './js/service.js';
 import { getdetailsPage } from './js/filmDetailsPage';
 
-// console.log(refs);
+const fetchQueryApiService = new FetchQueryApiService();
 
 // отправляем запрос по сабмину формы
 
 refs.formRef.addEventListener('submit', event => {
   event.preventDefault();
-  console.log(refs.refsInput);
-
-  const value = refs.refsInput.value;
-  console.log(value);
-  console.log(refs.GalleryRefs);
-  // apiService.resetPage();
-  apiService.getFetch(value, refs.GalleryRefs);
+  let value = refs.refsInput.value;
+  fetchQueryApiService
+    .fetchArticles(value)
+    .then(data => console.log(data));
+  
 });
 
 // меняет стили Home и library
