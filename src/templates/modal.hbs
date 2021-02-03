@@ -1,85 +1,89 @@
 {{#each this}}
 
-<div class="background">
- <div class="container header-img modal-background">
-  <div class="modal-top">
-   <div class="nav" id='nav'>
-    <div class="box-logo">
-     <a href="./index.html" class="logo-home link-logo modal-logo" rel="noopener noreferrer" aria-label="home-page">
-      <svg width="24px" height="24px" class="icon-logo">
-       <use href="./images/sprite.svg#icon-film">
-       </use>
+<header class="header">
+  <div class="container header-img home-background">
+    <div class="header-box">
+      <div class="nav" id="nav">
+        <div class="box-logo">
+          <a href="./index.html" class="logo-home link-logo" rel="noopener noreferrer" aria-label="home-page">
+            <svg width="24px" height="24px" class="icon-logo">
+              <use href="./images/sprite.svg#icon-film"></use>
+            </svg>
+          </a>
+          <h1 class="title">Filmoteka</h1>
+        </div>
+        <nav>
+          <ul class="list-nav">
+            <li class="item-nav">
+              <a class="link home activ" href="./index.html" aria-label="home-page">Home</a>
+            </li>
+            <li class="item-nav">
+              <a class="link library" href="./index.html" aria-label="library-page" name="reference">my library</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="library-btn is-hidden">
+        <button class="btn activ">Watched</button>
+
+        <button class="btn">queue</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="modal__poster">
+    <img class="poster" src="{{poster_path}}" alt="poster" />
+  </div>
+
+  <div class="modal__content">
+    <h2 class="modal__content-title">{{title}}</h2>
+
+    <div class="modal__content-info">
+      <ul class="modal__content-info name">
+        <li>Vote / Votes</li>
+        <li>Popularity</li>
+        <li>Original Title</li>
+        <li>Genre</li>
+      </ul>
+
+      <ul class="modal__content-info value">
+        <li><span class="vote-accent">{{vote_average}}</span> / {{vote_count}}</li>
+        <li>{{popularity}}</li>
+        <li class="modal__content-title info">{{original_title}}</li>
+        <li>{{#myGenger}}{{name}} {{/myGenger}}
+        </li>
+      </ul>
+    </div>
+
+    <h3 class="modal__content-title secondary">About</h3>
+    <p class="modal__content-decsription">{{overview}}</p>
+
+    <div class="modal__content-button">
+      <button class="btn btn-modal" data-action="watched">
+        add to Watched
+      </button>
+      <button class="btn btn-modal" data-action="queue">add to queue</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="box-footer">
+      <p class="text">© 2020 | All Rights Reserved |</p>
+
+      <p class="text">Developed with by</p>
+      <svg class="icon" width="12px" height="14px">
+        <use href="./images/sprite.svg#icon-love"></use>
       </svg>
-     </a>
-     <h1 class="title modal-title">Filmoteka</h1>
+      <a class="link-goit text" href="https://goit.ua/" target="_blank">GoIT Students
+      </a>
     </div>
-    <nav>
-     <ul class="list-nav modal-nav">
-      <li class="item-nav">
-       <a class="link home activ" href="./index.html" aria-label="home-page">Home</a>
-      </li>
-      <li class="item-nav">
-       <a class="link library" href="./index.html" aria-label="library-page" name='reference'>my library</a>
-      </li>
-     </ul>
-    </nav>
-   </div>
-
-   <div class="library-btn">
-    <button class="btn activ">Watched</button>
-    <button class="btn">queue</button>
-   </div>
   </div>
- </div>
-
- <div class="container modal-main">
-  <div class="list-library">
-   <div><img class="modal-poster" src="https://dic.academic.ru/pictures/wiki/files/69/Empty_set.svg" alt="poster"
-     width="280"></div>
-   <div class="modal-content">
-    <h1 class="film-title">-film title-</h1>
-    <div class="characteristics">
-     <ul class="name-characteristics">
-      <li>Vote / Votes</li>
-      <li>Popularity</li>
-      <li>Original Title</li>
-      <li>Genre</li>
-     </ul>
-     <ul class="film-characteristics">
-      <li><span class="vote-accent">-Vote-</span> / -Votes-</li>
-      <li>-Popularity-</li>
-      <li class="title-film-characteristics">-Original Title-</li>
-      <li>-Genre-</li>
-     </ul>
-    </div>
-    <h2 class="about">About</h2>
-    <p class="film-decsription">-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem fugit saepe
-     quibusdam
-     corrupti ipsa eligendi odio neque vitae. Quas, architecto.-</p>
-
-    <div class="modal-library-btn">
-     <button class="modal-button modal-activ">add to Watched</button>
-     <button class="modal-button">add to queue</button>
-    </div>
-
-   </div>
-
-
-  </div>
- </div>
-</div>
-
-<div class="container modal-footer">
- <div class="box-footer">
-  <p class="text">© 2020 | All Rights Reserved |</p>
-  <p class="text">Developed with by</p>
-  <svg class="icon" width="12px" height="14px">
-   <use href="./images/sprite.svg#icon-love"></use>
-  </svg>
-  <a class="link-goit text" href="https://goit.ua/" target="_blank">GoIT Students
-  </a>
- </div>
-</div>
+</footer>
 </div>
 
 {{/each}}
