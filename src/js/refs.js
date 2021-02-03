@@ -8,4 +8,6 @@ export const refs = {
   headerImgRef: document.querySelector('.header-img'),
   LogoRefs: document.querySelector('.logo-home'),
   GalleryRefs: document.querySelector('.list-library'),
+  detailsRefs: document.getElementById('list-details'),
+  modalRefs: document.getElementById('modal'),
 };
