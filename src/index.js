@@ -10,9 +10,12 @@ import { getdetailsPage } from './js/filmDetailsPage';
 
 refs.formRef.addEventListener('submit', event => {
   event.preventDefault();
+  console.log(refs.refsInput);
 
   const value = refs.refsInput.value;
-  apiService.resetPage();
+  console.log(value);
+  console.log(refs.GalleryRefs);
+  // apiService.resetPage();
   apiService.getFetch(value, refs.GalleryRefs);
 });
 
@@ -35,4 +38,3 @@ refs.GalleryRefs.addEventListener('click', event => {
   const value = event.target.id;
   getdetailsPage(value);
 });
-

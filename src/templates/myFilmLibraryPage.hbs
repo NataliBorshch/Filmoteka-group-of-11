@@ -1,21 +1,19 @@
 
 {{#each this}}
- <li id="js-film-item" class="main__film-item js-film-item">
-         <div class="main__film-item-wrapper js-film-item-wrapper">
-        <a class="gallery-items">
-            <img src="https://image.tmdb.org/t/p/w500{{backdrop_path}}"  id="{{id}}"
-                data-source="https://image.tmdb.org/t/p/w500{{poster_path}}"
-               alt="{{original_title}}"
-                class="main__film-image js-film-image" />
-        </a>
-    </div>
-    <div class="main__film-title-wrapper">
-        <h3 class="main__film-title">{{title}}</h3>
-        <span class="main__film-title main__film-title--year"
-            id="js-filmTitle-year">({{release_date}})</span>
-        <p class="stats-item visually-hidden">{{id}}</p>
-    </div>
-     </a>  
-</li>
-{{/each}}
 
+<li class="movie-card">
+  <img class="movie-card__poster" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}" alt="{{original_title}}" id="{{id}}"
+   data-source="https://image.tmdb.org/t/p/w500{{poster_path}}" />
+  <h3 class="movie-card__title">{{title}}</h3>
+  <ul class="movie-card__info">
+    <li class="movie-card__genre">
+        <p>Драма</p>
+    </li>
+    <li class="movie-card__year"><p>{{release_date}}</p></li>
+    <li class="movie-card__rate vote-accent">
+        {{id}}
+    </li>
+  </ul>
+</li>
+
+{{/each}}

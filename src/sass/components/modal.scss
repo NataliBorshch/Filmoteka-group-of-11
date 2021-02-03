@@ -1,11 +1,10 @@
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
+// *,
+// *:before,
+// *:after {
+//   box-sizing: inherit;
+//   margin: 0;
+//   padding: 0;
+// }
 .modal {
   font-family: Roboto, sans-serif;
   font-weight: 500;
@@ -113,7 +112,7 @@ ul {
   border-radius: 5px;
   border: 5px solid inherit;
   padding: 1px 10px;
-
+}
 // .modal {
 //   position: fixed;
 //   top: 0;
