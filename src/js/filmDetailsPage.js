@@ -1,9 +1,10 @@
 import { refs } from './refs';
-import TemplateDetailPage from '../templates/detailsPage.hbs';
+import TemplateDetailPage from '../templates/modal.hbs';
 
 // console.log(refs);
 const arrayIdQ = [];
 const arrayIdW = [];
+
 
 async function getdetailsPage(id) {
   // event.preventDefault();
@@ -16,7 +17,7 @@ async function getdetailsPage(id) {
   const templateCardFilm = await TemplateDetailPage(film);
   const createCardFilm = await createDatails(refs.modalRefs, templateCardFilm);
 
-  modal.classList.remove('is-hidden');
+  refs.modalRefs.classList.remove('is-hidden');
   refs.modalRefs.addEventListener('click', closeModal);
   document.addEventListener('keydown', eventKeyDown);
   const modalBtn = await {
@@ -30,7 +31,6 @@ async function getdetailsPage(id) {
     if (event.target.nodeName !== 'BUTTON') {
       return;
     }
-
     if (event.target.id === 'queue-add') {
       localStorage.setItem('queue', `${id}`);
       const getQueue = localStorage.getItem('queue');
@@ -40,12 +40,13 @@ async function getdetailsPage(id) {
     if (event.target.id === 'watch-add') {
       localStorage.setItem('watch', `${id}`);
       const getWatch = localStorage.getItem('watch');
+      event.target.textContent = 'remove to watch ';
       arrayIdW.push(Number(getWatch));
     }
     // console.log(id);
     // console.dir(event.target);
-    // console.log(arrayIdW);
-    // console.log(arrayIdQ);
+    console.log(arrayIdW);
+    console.log(arrayIdQ);
   });
 }
 
@@ -73,4 +74,4 @@ const eventKeyDown = event => {
 
 // console.log(urlId);
 
-export { getdetailsPage };
+export { getdetailsPage  };

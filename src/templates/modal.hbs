@@ -1,89 +1,37 @@
-{{#each this}}
-
-<header class="header">
-  <div class="container header-img home-background">
-    <div class="header-box">
-      <div class="nav" id="nav">
-        <div class="box-logo">
-          <a href="./index.html" class="logo-home link-logo" rel="noopener noreferrer" aria-label="home-page">
-            <svg width="24px" height="24px" class="icon-logo">
-              <use href="./images/sprite.svg#icon-film"></use>
-            </svg>
-          </a>
-          <h1 class="title">Filmoteka</h1>
-        </div>
-        <nav>
-          <ul class="list-nav">
-            <li class="item-nav">
-              <a class="link home activ" href="./index.html" aria-label="home-page">Home</a>
-            </li>
-            <li class="item-nav">
-              <a class="link library" href="./index.html" aria-label="library-page" name="reference">my library</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="library-btn is-hidden">
-        <button class="btn activ">Watched</button>
-
-        <button class="btn">queue</button>
-      </div>
-    </div>
-  </div>
-</header>
 
 <div class="container">
-  <div class="modal__poster">
-    <img class="poster" src="{{poster_path}}" alt="{{title}}" />
+  <div class="box-modal">
+        <img  class="modal-img" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}"
+        data-source="https://image.tmdb.org/t/p/w500{{backdrop_path}}"
+        alt="{{original_title}}" />
+
+      <div class="modal__content">
+
+       <h2 class="modal__content-title">{{title}}</h2>
+       <div class="info-film">
+
+        <ul class="modal__content-info name">
+              <li>Vote / Votes</li>
+              <li>Popularity</li>
+               <li>Original Title</li>
+               <li>Genre</li>
+        </ul>
+         <ul class="modal__content-info value">
+             <li><span class="vote-accent">{{vote_average}}</span> / {{vote_count}}</li>
+             <li>{{popularity}}</li>
+             <li class="modal__content-title info">{{original_title}}</li>
+              <li>{{#myGenger}}{{name}} {{/myGenger}}</li>
+         </ul>
+         </div>
+           <h3 class="modal__content-title secondary">About</h3>
+            <p class="modal__content-decsription">{{overview}}</p>
+         
+          <div class="modal__content-button" id="modal-box-bnt">
+            <button class="btn-modal" id="watch-add" data-action="watched">add to Watched</button>
+            <button class="btn-modal" id="queue-add" data-action="queue">add to queue</button>
+          </div>
+          
+     </div>
   </div>
 
-  <div class="modal__content">
-    <h2 class="modal__content-title">{{title}}</h2>
-
-    <div class="modal__content-info">
-      <ul class="modal__content-info name">
-        <li>Vote / Votes</li>
-        <li>Popularity</li>
-        <li>Original Title</li>
-        <li>Genre</li>
-      </ul>
-
-      <ul class="modal__content-info value">
-        <li><span class="vote-accent">{{vote_average}}</span> / {{vote_count}}</li>
-        <li>{{popularity}}</li>
-        <li class="modal__content-title info">{{original_title}}</li>
-        <li>{{#myGenger}}{{name}} {{/myGenger}}
-        </li>
-      </ul>
-    </div>
-
-    <h3 class="modal__content-title secondary">About</h3>
-    <p class="modal__content-decsription">{{overview}}</p>
-
-    <div class="modal__content-button">
-      <button class="btn btn-modal" data-action="watched">
-        add to Watched
-      </button>
-      <button class="btn btn-modal" data-action="queue">add to queue</button>
-    </div>
-  </div>
 </div>
-
-<footer>
-  <div class="container">
-    <div class="box-footer">
-      <p class="text">© 2020 | All Rights Reserved |</p>
-
-      <p class="text">Developed with by</p>
-      <svg class="icon" width="12px" height="14px">
-        <use href="./images/sprite.svg#icon-love"></use>
-      </svg>
-      <a class="link-goit text" href="https://goit.ua/" target="_blank">GoIT Students
-      </a>
-    </div>
-  </div>
-</footer>
-</div>
-
-{{/each}}
