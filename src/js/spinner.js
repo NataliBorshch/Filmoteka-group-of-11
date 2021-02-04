@@ -26,9 +26,6 @@ const spinner = new Spinner(opts).spin(refs.loader);
 
 export default spinner;
 
-// spinner(); //запустить спинер
-// spinner.stop(); // скрыть спиннет
+// refs.loader.classList.add('is-hidden'); //скрыть спинер
 
-// refs.loader.classList.add('is-hidden');
-
-// refs.loader.classList.remove('is-hidden');
+// refs.loader.classList.remove('is-hidden'); //показать спинер
