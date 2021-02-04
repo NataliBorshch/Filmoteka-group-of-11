@@ -1,7 +1,9 @@
-import {refs} from './refs';
+import { refs } from './refs';
 
 export default class FetchQueryApiService {
   constructor() {
+    this.number = 0;
+    this.newMassOfMovies = [];
     this.massOfMovies = [];
     this.url = '';
     this.page = 1;
@@ -14,6 +16,13 @@ export default class FetchQueryApiService {
   }
 
   async fetchArticles(searchQuery) {
+    if (refs.widthWindow > 1023) {
+      this.number = 9;
+    } else if (refs.widthWindow < 768) {
+      this.number = 3;
+    } else if (refs.widthWindow > 767 && refs.widthWindow < 1024) {
+      this.number = 4;
+    }
     if (searchQuery != this.searchQuery) {
       refs.GalleryRefs.innerHTML = '';
       this.massOfMovies = [];
@@ -45,20 +54,21 @@ export default class FetchQueryApiService {
         fetch(ele)
           .then(response => response.json())
           .then(data => {
-            let myGenger = data.genres.map(el=>el.name);
+            let myGenger = data.genres.map(el => el.name);
             return [
               this.massOfMovies.push({
-                backdrop_path: this.full_URL_Image+data.backdrop_path,
+                backdrop_path: this.full_URL_Image + data.backdrop_path,
                 original_title: data.original_title,
                 overview: data.overview,
                 popularity: data.popularity,
-                poster_path: this.full_URL_Image+data.poster_path,
+                poster_path: this.full_URL_Image + data.poster_path,
                 release_date: data.release_date,
                 title: data.title,
                 vote_average: data.vote_average,
                 vote_count: data.vote_count,
                 myGenger: myGenger,
               }),
+              
             ];
           }),
       );

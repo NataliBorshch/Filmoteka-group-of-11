@@ -10,4 +10,5 @@ export const refs = {
   GalleryRefs: document.querySelector('.list-library'),
   detailsRefs: document.getElementById('list-details'),
   modalRefs: document.getElementById('modal'),
+  widthWindow:document.body.clientWidth,
 };
