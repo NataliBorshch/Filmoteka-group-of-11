@@ -1,14 +1,4 @@
-// *,
-// *:before,
-// *:after {
-//   box-sizing: inherit;
-//   margin: 0;
-//   padding: 0;
-// }
-.modal {
-  font-family: Roboto, sans-serif;
-  font-weight: 500;
-}
+
 ul {
   list-style: none;
 }
@@ -18,40 +8,34 @@ ul {
   color: $black;
   min-width: 136px;
   padding: 20px 10px;
+  margin-left: 15px;
   border: 1px solid $black;
-  ​ &:hover,
-  &:active,
-  &:focus {
-    color: $white;
-  }
-  ​ &:first-child {
-    @include for-size(desktop) {
-      margin-right: 15px;
-    }
-  }
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33px;
+  text-transform: uppercase;
+
+  &:hover,
+&:active,
+&:focus{
+  background-color: $accent;
+  border: 1px solid $accent;
+  outline: inherit;
+  color:$white;
 }
-.modal {
-  & .container {
-    padding-top: 20px;
-    padding-bottom: 40px;
-    @include for-size(tablet-landscape) {
-      display: flex;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-  }
-  &__poster,
-  &__content {
-    @include for-size(tablet-landscape) {
-      width: calc((100% - 30px) / 2);
-    }
-  }
-  ​ &__poster {
-    @include for-size(tablet-landscape) {
-      margin-right: 30px;
-    }
-  }
+
+ 
+  // ​ &:first-child {
+  //   @include for-size(desktop) {
+  //     margin-right: 15px;
+  //   }
+  // }
 }
+
+
+
+
 .modal__content-title {
   margin: 30px 0 20px;
   text-transform: uppercase;
@@ -90,6 +74,7 @@ ul {
   }
 }
 .modal__content {
+  margin-left: 30px;
   &-decsription {
     font-size: 12px;
     line-height: 1.67;
@@ -113,43 +98,59 @@ ul {
   border: 5px solid inherit;
   padding: 1px 10px;
 }
-// .modal {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.61);
-//   z-index: 2;
-//   //   overflow: scroll;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.61);
+  z-index: 2;
+  //   overflow: scroll;
 
-//   @include for-size(tablet-landscape-1) {
-//     padding-top: 100px;
-//   }
+  @include for-size(tablet-landscape-1) {
+    padding-top: 100px;
+  }
 
-//   &.is-hidden {
-//     opacity: 0;
-//     pointer-events: none;
-//   }
-// }
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
 
-// .box-modal {
-//   background-color: $white;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   padding: 71px;
-//   //   margin-top: 100px;
-//   width: 70%;
-//   height: 70%;
-//   //   overflow: scroll;
-//   transform: translate(-50%, -50%);
-//   display: flex;
-//   z-index: 2000;
-// }
+.box-modal {
+  background-color: $white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 70px;
+  overflow: auto;
 
-// .box-img .modal-img {
-//   max-width: 100%;
-//   max-height: 100%;
-// >>>>>>> dev
-// }
+ max-width: 90%;
+height: 90%;
+  //   overflow: scroll;
+  transform: translate(-50%, -50%);
+  display: flex;
+  z-index: 2000;
+  @include for-size(tablet-landscape){
+    padding: 35px;
+  }
+
+  
+}
+
+
+.modal-img {
+  max-width: 400px;
+  height: auto;
+  display: block;
+    background: url(../images/film.jpg);
+    background-size: contain;
+  
+}
+
+
+
+.info-film{
+  display: flex;
+}
