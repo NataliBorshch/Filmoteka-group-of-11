@@ -5,9 +5,8 @@ import serviseApi from './js/service';
 
 import * as basicLightbox from 'basiclightbox';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
-
-
-
+import spinner from './js/spinner';
+import pagination from './js/pagination';
 
 // console.log(refs)
 
@@ -18,16 +17,8 @@ import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 //   serviseApi.getFetch(value,refs.GalleryRefs).then(data=> console.log(data))
 // })
 
-
-
-
-
-
-
 // меняет стили Home и library
 refs.navRefs.addEventListener('click', event => {
   event.preventDefault();
   curentPage(event);
 });
-
-

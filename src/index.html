@@ -15,7 +15,7 @@
     <header class="header">
       <div class="container header-img home-background">
         <div class="header-box">
-          <div class="nav" id='nav'>
+          <div class="nav" id="nav">
             <div class="box-logo">
               <a
                 href="./index.html"
@@ -24,10 +24,9 @@
                 aria-label="home-page"
               >
                 <svg width="24px" height="24px" class="icon-logo">
-                  <use href="./images/sprite.svg#icon-film">
-                  </use>
-                  </svg>
-                </a>
+                  <use href="./images/sprite.svg#icon-film"></use>
+                </svg>
+              </a>
               <h1 class="title">Filmoteka</h1>
             </div>
             <nav>
@@ -45,7 +44,7 @@
                     class="link library"
                     href="./index.html"
                     aria-label="library-page"
-                    name='reference'
+                    name="reference"
                     >my library</a
                   >
                 </li>
@@ -53,18 +52,17 @@
             </nav>
           </div>
           <form class="form-search">
-            <input 
+            <input
               class="input-search"
               placeholder=" Поиск фильмов"
               id="input"
               name="query"
             />
-            <button type="submit" class="btn-form" >
+            <button type="submit" class="btn-form">
               <svg class="input-icon" width="12px" height="12px">
                 <use href="./images/sprite.svg#icon-search"></use>
               </svg>
             </button>
-            
           </form>
           <div class="library-btn is-hidden">
             <button class="btn activ">Watched</button>
@@ -80,7 +78,19 @@
           <div class="list-library"></div>
         </div>
       </div>
+
+      <!-- Spinner -->
+      <div classs="spinner" id="loading"></div>
+      <!-- Paginator -->
+      <div class="pagination__container">
+        <div class="pagination__container_pages">
+          <div class="pag-arrow arrow_left"></div>
+          <div class="pagenumbers" id="pagination"></div>
+          <div class="pag-arrow arrow_right"></div>
+        </div>
+      </div>
     </main>
+
     <footer>
       <div class="container">
         <div class="box-footer">

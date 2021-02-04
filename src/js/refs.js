@@ -8,4 +8,5 @@ export const refs = {
   headerImgRef: document.querySelector('.header-img'),
   LogoRefs: document.querySelector('.logo-home'),
   GalleryRefs: document.querySelector('.list-library'),
+  loader: document.getElementById('loading'), //spinner
 };
