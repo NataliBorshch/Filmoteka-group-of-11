@@ -6,6 +6,7 @@ import serviseApi from './js/service';
 import * as basicLightbox from 'basiclightbox';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import spinner from './js/spinner';
+import pagination from './js/pagination';
 
 // console.log(refs)
 
