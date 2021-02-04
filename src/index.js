@@ -33,8 +33,10 @@ refs.GalleryRefs.addEventListener('click', event => {
   if (event.target.tagName !== 'IMG') {
     return;
   }
-  // console.dir(event.target.id);
-  // console.dir(event.target);
+  console.dir(event.target.id);
+  console.dir(event.target);
   const value = event.target.id;
   getdetailsPage(value);
 });
+
+console.log(refs);
