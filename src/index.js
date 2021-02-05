@@ -29,6 +29,7 @@ refs.formRef.addEventListener('submit', event => {
         .then(response => response.json())
         .then(data => {
           console.log(data);
+          const newArray= [];
  createDatails(refs.GalleryRefs,TemplatesLibrary(data))
 
           let myGenger = data.genres.map(el => el.name);

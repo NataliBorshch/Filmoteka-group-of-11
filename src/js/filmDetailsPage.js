@@ -32,16 +32,16 @@ async function getdetailsPage(id) {
       return;
     }
     if (event.target.id === 'queue-add') {
-      localStorage.setItem('queue', `${id}`);
-      const getQueue = localStorage.getItem('queue');
+      localStorage.setItem(`${id}`,JSON.stringify(`${film}`));
+      // const getQueue = localStorage.getItem('queue');
       event.target.textContent = 'remove to queue ';
-      arrayIdQ.push(Number(getQueue));
+      // arrayIdQ.push(getQueue);
     }
     if (event.target.id === 'watch-add') {
       localStorage.setItem('watch', `${id}`);
-      const getWatch = localStorage.getItem('watch');
+      // const getWatch = localStorage.getItem('watch');
       event.target.textContent = 'remove to watch ';
-      arrayIdW.push(Number(getWatch));
+      // arrayIdW.push(Number(getWatch));
     }
     // console.log(id);
     // console.dir(event.target);
@@ -75,5 +75,8 @@ const eventKeyDown = event => {
 };
 
 // console.log(urlId);
+
+
+
 
 export { getdetailsPage , createDatails };
