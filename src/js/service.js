@@ -2,12 +2,12 @@ import { refs } from './refs';
 
 export default class FetchQueryApiService {
   constructor() {
-    this.number = 0;
-    this.newMassOfMovies = [];
-    this.massOfMovies = [];
+    // this.number = 0;
+    // this.newMassOfMovies = [];
+    // this.massOfMovies = [];
     this.url = '';
     this.page = 1;
-    this.totalHits = 0;
+    // this.totalHits = 0;
     this.searchQuery = '';
     this.full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
     this.apiKey = '4f9c0875fb3e036244791a873d8888e9';
@@ -50,29 +50,9 @@ export default class FetchQueryApiService {
           `https://api.themoviedb.org/3/movie/${idFilm}?api_key=${this.apiKey}&language=en-US`,
       );
 
-      createURL.map(ele =>
-        fetch(ele)
-          .then(response => response.json())
-          .then(data => {
-            let myGenger = data.genres.map(el => el.name);
-            return [
-              this.massOfMovies.push({
-                backdrop_path: this.full_URL_Image + data.backdrop_path,
-                original_title: data.original_title,
-                overview: data.overview,
-                popularity: data.popularity,
-                poster_path: this.full_URL_Image + data.poster_path,
-                release_date: data.release_date,
-                title: data.title,
-                vote_average: data.vote_average,
-                vote_count: data.vote_count,
-                myGenger: myGenger,
-              }),
-              
-            ];
-          }),
-      );
-      return this.massOfMovies;
+      
+      // console.log(createURL);
+      return createURL;
     } catch (err) {
       console.log(err);
     }
