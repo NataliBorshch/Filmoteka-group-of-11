@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="box-modal">
+        <img  class="modal-img" src="https://image.tmdb.org/t/p/w500{{backdrop_path}}"
+        data-source="https://image.tmdb.org/t/p/w500{{backdrop_path}}"
+        alt="{{original_title}}" />
+
+      <div class="modal__content">
+
+       <h2 class="modal__content-title">{{title}}</h2>
+       <div class="info-film">
+
+        <ul class="modal__content-info name">
+              <li>Vote / Votes</li>
+              <li>Popularity</li>
+               <li>Original Title</li>
+               <li>Genre</li>
+        </ul>
+         <ul class="modal__content-info value">
+             <li><span class="vote-accent">{{vote_average}}</span> / {{vote_count}}</li>
+             <li>{{popularity}}</li>
+             <li class="modal__content-title info">{{original_title}}</li>
+              <li>{{#myGenger}}{{name}} {{/myGenger}}</li>
+         </ul>
+         </div>
+           <h3 class="modal__content-title secondary">About</h3>
+            <p class="modal__content-decsription">{{overview}}</p>
+         
+          <div class="modal__content-button" id="modal-box-bnt">
+            <button class="btn-modal" id="watch-add" data-action="watched">add to Watched</button>
+            <button class="btn-modal" id="queue-add" data-action="queue">add to queue</button>
+          </div>
+          
+     </div>
+  </div>
+
+</div>

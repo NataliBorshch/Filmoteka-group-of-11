@@ -9,7 +9,7 @@
 .box-logo {
   display: flex;
   justify-content: space-between;
-  .link-logo{
+  .link-logo {
     margin-right: 10px;
   }
   .icon-logo {
@@ -81,12 +81,13 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
-  
+  background: inherit;
+  color: $white;
+
   .input-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
 }
 .input-search {
@@ -102,10 +103,15 @@
   @include for-size(tablet-portrait) {
     max-width: 336px;
   }
-
-  
+  &:hover,
+  &input:active,
+  &:focus {
+    background-color: inherit;
+    outline: inherit;
+    color: $white;
+  }
 }
-.btn-form{
+.btn-form {
   background-color: inherit;
   border: none;
   margin-left: -15px;
@@ -156,3 +162,5 @@
     background-color: $accent;
   }
 }
+
+

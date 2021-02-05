@@ -9,4 +9,7 @@ export const refs = {
   LogoRefs: document.querySelector('.logo-home'),
   GalleryRefs: document.querySelector('.list-library'),
   loader: document.getElementById('loading'), //spinner
+  detailsRefs: document.getElementById('list-details'),
+  modalRefs: document.getElementById('modal'),
+  widthWindow:document.body.clientWidth,
 };
