@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import { refs } from './js/refs';
 import curentPage from './js/initialHomePage';
+
 import FetchQueryApiService from './js/service.js';
 import { getdetailsPage } from './js/filmDetailsPage';
 
@@ -24,6 +25,7 @@ refs.navRefs.addEventListener('click', event => {
   curentPage(event);
 });
 
+
 // открытие и закрытие модалки
 
 refs.GalleryRefs.addEventListener('click', event => {
@@ -38,3 +40,4 @@ refs.GalleryRefs.addEventListener('click', event => {
 });
 
 console.log(refs);
+
