@@ -14,13 +14,15 @@
               <li>Vote / Votes</li>
               <li>Popularity</li>
                <li>Original Title</li>
-               <li>Genre</li>
+               <li>
+                 Genre
+               </li>
         </ul>
          <ul class="modal__content-info value">
              <li><span class="vote-accent">{{vote_average}}</span> / {{vote_count}}</li>
              <li>{{popularity}}</li>
              <li class="modal__content-title info">{{original_title}}</li>
-              <li>{{#myGenger}}{{name}} {{/myGenger}}</li>
+              <li>{{#each genres}}{{name}} {{/each}}</li>
          </ul>
          </div>
            <h3 class="modal__content-title secondary">About</h3>

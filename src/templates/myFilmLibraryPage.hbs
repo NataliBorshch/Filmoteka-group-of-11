@@ -1,13 +1,12 @@
 
-{{#each this}}
+{{!-- {{#each this}} --}}
 
 <li class="movie-card">
   <img class="movie-card__poster film-image" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}" id="{{id}}"
    data-source="https://image.tmdb.org/t/p/w500"{{backdrop_path}} />
   <h3 class="movie-card__title">{{title}}</h3>
   <ul class="movie-card__info">
-    <li class="movie-card__genre">
-        <p>Drama, Action</p>
+    <li class="movie-card__genre">{{#each genres}}{{name}} {{/each}}
     </li>
     <li class="movie-card__year"><p>{{release_date}}</p></li>
     <li class="movie-card__rate vote-accent">
@@ -16,4 +15,4 @@
   </ul>
 </li>
 
-{{/each}}
+{{!-- {{/each}} --}}

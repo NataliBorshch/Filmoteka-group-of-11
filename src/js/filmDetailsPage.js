@@ -50,9 +50,11 @@ async function getdetailsPage(id) {
   });
 }
 
+
 function createDatails(place, tepmlate) {
   return place.insertAdjacentHTML('beforeend', tepmlate);
 }
+
 
 const closeModal = event => {
   if (event.target.id !== 'modal') {
@@ -74,4 +76,4 @@ const eventKeyDown = event => {
 
 // console.log(urlId);
 
-export { getdetailsPage  };
+export { getdetailsPage , createDatails };
