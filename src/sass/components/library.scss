@@ -6,13 +6,15 @@
 // }
 
 .movies-list {
+  padding: 0;
+
   @include for-size(tablet-landscape) {
     display: flex;
     flex-wrap: wrap;
     padding: 60px 0px;
     margin: 0;
     list-style: none;
-    background-color: rgba(0, 225, 255, 0.76);
+    // background-color: rgba(0, 225, 255, 0.76);
   }
 }
 
@@ -22,7 +24,7 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.06em;
-  background-color: red;
+  // background-color: red;
 
   &__poster {
     max-height: 398px;
@@ -36,6 +38,8 @@
   }
 
   &__info {
+    padding: 0;
+    margin: 0;
     display: flex;
     color: $accent;
   }
@@ -112,11 +116,22 @@
   padding: 1px 10px;
 }
 
-
- 
-
-.film-image{
+.film-image {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  border-radius: 10px;
+}
+
+.vote {
+  color: $black;
+  background: $footer-color;
+  border-radius: 5px;
+  border: 5px solid inherit;
+  padding: 1px 10px;
+
+  &-accent {
+    color: $white;
+    background: $accent;
+  }
 }
