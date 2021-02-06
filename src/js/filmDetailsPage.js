@@ -4,9 +4,9 @@ import {eventKeyDown , closeModal } from './closeModal';
 
 
 
-let parseW =  JSON.parse(localStorage.getItem('watch')) || [] ;
+ export let parseW =  JSON.parse(localStorage.getItem('watch')) || [] ;
 // console.log(parseW)
-let parseQ = JSON.parse(localStorage.getItem('queue')) || [];
+ export let parseQ = JSON.parse(localStorage.getItem('queue')) || [];
 
 async function getdetailsPage(id) {
   // event.preventDefault();
@@ -30,14 +30,16 @@ async function getdetailsPage(id) {
 
   // кнопка добавитьв просмотренные W
   const IndexItemW  = await ChangeTextBtn(parseW,film,modalBtn.watch);
-  const IndexItemQ  = await ChangeTextBtn(parseW,film,modalBtn.queue);
+  const IndexItemQ  = await ChangeTextBtn(parseQ,film,modalBtn.queue);
   modalBtn.watch.addEventListener('click',event=>{
     event.preventDefault()   
+    parseW =  JSON.parse(localStorage.getItem('watch')) || [];
     if (event.target.textContent === 'remove from watch'){
        parseW.splice(IndexItemW, 1)
       console.log(parseW)
-      localStorage.setItem('watch', JSON.stringify(parseW))
       ChangeTextBtn(parseW, film, modalBtn.watch)
+      localStorage.setItem('watch', JSON.stringify(parseW))
+      
       
     }
     else{
@@ -84,7 +86,7 @@ function ChangeTextBtn(parseJson, film,btnWatch){
     btnWatch.textContent = 'add to Watched'
     return;
   }
-  let indexW = 0;
+  let indexW = -1;
   parseJson.forEach((elem,index) => {
       if (elem.id === film.id ){
           btnWatch.textContent = 'remove from watch';
@@ -106,7 +108,8 @@ function ChangeTextBtnQ(parseJson, film,btn){
     btn.textContent = 'add to queue';
     return;
   }
-  let indexQ = 0;
+
+  let indexQ =-1;
 
   parseJson.forEach((elem,index) => {
       if (elem.id === film.id ){
@@ -137,4 +140,4 @@ function createDatails(place, tepmlate) {
 }
 
 
-export { getdetailsPage , createDatails  };
+export { getdetailsPage , createDatails};

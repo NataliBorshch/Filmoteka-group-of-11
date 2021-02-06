@@ -145,6 +145,7 @@ ul {
   top: 80%;
   left: 50%;
   padding: 20px;
+  overflow-y: scroll;
 
   width: 320px;
   height: auto;
@@ -160,12 +161,12 @@ ul {
     top: 50%;
     max-width: 90%;
     width: 768px;
-    padding: 35px;
+    padding: 30px;
   }
 
   @include for-size(desktop) {
     width: 1024px;
-    padding: 70px;
+    padding: 40px;
   }
 }
 
