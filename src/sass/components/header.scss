@@ -146,11 +146,16 @@
   text-align: center;
   text-transform: uppercase;
   margin-left: 15px;
+  cursor: pointer;
 
   padding: 20px 38px;
   border: 1px solid #ffffff;
   box-sizing: border-box;
   border-radius: 5px;
+
+
+ 
+
   &:hover,
   &:active,
   &:focus {
@@ -158,9 +163,14 @@
     border: 1px solid $accent;
     outline: inherit;
   }
-  .activ {
-    background-color: $accent;
-  }
+  
 }
 
 
+.library-btn{
+  .activ{
+    background-color: $accent;
+    border: 1px solid $accent;
+    outline: inherit;
+  }
+}
