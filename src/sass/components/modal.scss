@@ -142,12 +142,12 @@ ul {
 .box-modal {
   background-color: $white;
   position: absolute;
-  top: 80%;
+  top: 100%;
   left: 50%;
   padding: 20px;
   overflow-y: scroll;
 
-  width: 320px;
+  width: 300px;
   height: auto;
 
   max-width: 100%;
@@ -158,15 +158,17 @@ ul {
 
   @include for-size(tablet-landscape) {
     display: flex;
-    top: 50%;
-    max-width: 90%;
-    width: 768px;
+    top: 90%;
+    // max-width: 90%;
+    width: 700px;
     padding: 30px;
   }
 
   @include for-size(desktop) {
-    width: 1024px;
+    max-width: 900px;
     padding: 40px;
+    top: 50%;
+    // max-width: 70%;
   }
 }
 
@@ -183,9 +185,11 @@ ul {
 
 
  .modal-img {
-  height: auto;
+  // max-height: auto;
   display: block;
   background-size: contain;
-  width: 100%;
+  // max-width: 100%;
+  max-width: auto;
+  max-height: 100%;
   border-radius: 10px;
 }

@@ -3,6 +3,8 @@ export const refs = {
   navRefs: document.getElementById('nav'),
   formRef: document.querySelector('.form-search'),
   bntLibraryRef: document.querySelector('.library-btn'),
+  watchBtn:document.getElementById('watch-btn'),
+  queueBtn:document.getElementById('queue-btn'),
   linkHome: document.querySelector('.home'),
   linkLibrary: document.querySelector('.library'),
   headerImgRef: document.querySelector('.header-img'),
