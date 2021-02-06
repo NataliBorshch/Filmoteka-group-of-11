@@ -154,3 +154,11 @@ height: 90%;
 .info-film{
   display: flex;
 }
+
+
+.animation-open {
+  -webkit-animation-name: zoom-in;
+     -webkit-animation-duration: 0.6s;
+     animation-name: zoom-in;
+     animation-duration: 0.6s;
+ }

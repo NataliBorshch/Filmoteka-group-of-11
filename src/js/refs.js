@@ -1,5 +1,4 @@
 export const refs = {
-  Array:[],
   refsInput: document.getElementById('input'),
   navRefs: document.getElementById('nav'),
   formRef: document.querySelector('.form-search'),

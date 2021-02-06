@@ -1,9 +1,17 @@
 import { refs } from './refs';
 import TemplateDetailPage from '../templates/modal.hbs';
+import {eventKeyDown , closeModal } from './closeModal';
+import {localStorageW} from './LocalStoreg';
+
 
 // console.log(refs);
-const arrayIdQ = [];
-const arrayIdW = [];
+// const arrayIdQ = JSON.parse(localStorage.getItem(`queue`)) || [];
+ let arrayIdW = [];
+
+
+// console.log(arrayIdQ)
+// const getQueue = localStorage.getItem('queue');
+// arrayIdQ.push(Number(getQueue));
 
 
 async function getdetailsPage(id) {
@@ -12,11 +20,9 @@ async function getdetailsPage(id) {
   // console.log(id);
   const urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`;
   const response = await fetch(urlId);
-
   const film = await response.json();
   const templateCardFilm = await TemplateDetailPage(film);
   const createCardFilm = await createDatails(refs.modalRefs, templateCardFilm);
-
   refs.modalRefs.classList.remove('is-hidden');
   refs.modalRefs.addEventListener('click', closeModal);
   document.addEventListener('keydown', eventKeyDown);
@@ -24,31 +30,27 @@ async function getdetailsPage(id) {
     watch: document.getElementById('watch-add'),
     queue: document.getElementById('queue-add'),
     boxBtn: document.getElementById('modal-box-bnt'),
-  };
-  // console.log(modalBtn);
+  }; 
+  modalBtn.watch.addEventListener('click',event=>{
+    event.preventDefault()
+    localStorageW(event,film, arrayIdW, modalBtn.watch )
 
-  modalBtn.boxBtn.addEventListener('click', event => {
-    if (event.target.nodeName !== 'BUTTON') {
-      return;
-    }
-    if (event.target.id === 'queue-add') {
-      localStorage.setItem(`${id}`,JSON.stringify(`${film}`));
-      // const getQueue = localStorage.getItem('queue');
-      event.target.textContent = 'remove to queue ';
-      // arrayIdQ.push(getQueue);
-    }
-    if (event.target.id === 'watch-add') {
-      localStorage.setItem('watch', `${id}`);
-      // const getWatch = localStorage.getItem('watch');
-      event.target.textContent = 'remove to watch ';
-      // arrayIdW.push(Number(getWatch));
-    }
-    // console.log(id);
-    // console.dir(event.target);
-    console.log(arrayIdW);
-    console.log(arrayIdQ);
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function createDatails(place, tepmlate) {
@@ -56,27 +58,4 @@ function createDatails(place, tepmlate) {
 }
 
 
-const closeModal = event => {
-  if (event.target.id !== 'modal') {
-    return;
-  }
-  const modal = document.getElementById('modal');
-  modal.classList.add('is-hidden');
-  document.removeEventListener('keydown', eventKeyDown);
-  refs.modalRefs.innerHTML = '';
-};
-
-const eventKeyDown = event => {
-  if (event.code !== 'Escape') {
-    return;
-  }
-  modal.classList.add('is-hidden');
-  refs.modalRefs.innerHTML = '';
-};
-
-// console.log(urlId);
-
-
-
-
-export { getdetailsPage , createDatails };
+export { getdetailsPage , createDatails  };
