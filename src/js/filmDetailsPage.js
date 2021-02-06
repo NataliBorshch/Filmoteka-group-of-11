@@ -33,7 +33,7 @@ async function getdetailsPage(id) {
   const IndexItemQ  = await ChangeTextBtn(parseW,film,modalBtn.queue);
   modalBtn.watch.addEventListener('click',event=>{
     event.preventDefault()   
-    if (event.target.textContent === 'remove to watch'){
+    if (event.target.textContent === 'remove from watch'){
        parseW.splice(IndexItemW, 1)
       console.log(parseW)
       localStorage.setItem('watch', JSON.stringify(parseW))
@@ -50,7 +50,7 @@ async function getdetailsPage(id) {
 //  кнопка добавитьв Q
   modalBtn.queue.addEventListener('click',event=>{
     event.preventDefault()   
-    if (event.target.textContent === 'remove to queue'){
+    if (event.target.textContent === 'remove from queue'){
        parseQ.splice(IndexItemQ, 1)
       console.log(parseQ)
       localStorage.setItem('queue', JSON.stringify(parseQ))
@@ -87,7 +87,7 @@ function ChangeTextBtn(parseJson, film,btnWatch){
   let indexW = 0;
   parseJson.forEach((elem,index) => {
       if (elem.id === film.id ){
-          btnWatch.textContent = 'remove to watch';
+          btnWatch.textContent = 'remove from watch';
           indexW = index;  
       }
       else{
@@ -110,7 +110,7 @@ function ChangeTextBtnQ(parseJson, film,btn){
 
   parseJson.forEach((elem,index) => {
       if (elem.id === film.id ){
-        btn.textContent = 'remove to queue';
+        btn.textContent = 'remove from queue';
           indexQ = index;  
       }
       else{
