@@ -53,6 +53,7 @@
           </div>
           <form class="form-search">
             <input
+
               autocomplete="off"
               class="input-search"
               placeholder=" Поиск фильмов"
@@ -79,10 +80,23 @@
           <ul class="list-library movies-list"></ul>
         </div>
       </div>
+
+      <!-- Spinner -->
+      <div classs="spinner" id="loading"></div>
+      <!-- Paginator -->
+      <div class="pagination__container">
+        <div class="pagination__container_pages">
+          <div class="pag-arrow arrow_left"></div>
+          <div class="pagenumbers" id="pagination"></div>
+          <div class="pag-arrow arrow_right"></div>
+        </div>
+
       <div id="list-details">
         <div class="modal is-hidden" id="modal"></div>
+
       </div>
     </main>
+
     <footer>
       <div class="container">
         <div class="box-footer">

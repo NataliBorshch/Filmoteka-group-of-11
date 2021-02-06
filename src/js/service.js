@@ -2,12 +2,8 @@ import { refs } from './refs';
 
 export default class FetchQueryApiService {
   constructor() {
-    // this.number = 0;
-    // this.newMassOfMovies = [];
-    // this.massOfMovies = [];
     this.url = '';
     this.page = 1;
-    // this.totalHits = 0;
     this.searchQuery = '';
     this.full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
     this.apiKey = '4f9c0875fb3e036244791a873d8888e9';
@@ -48,10 +44,8 @@ export default class FetchQueryApiService {
       let createURL = filmsResultsId.map(
         idFilm =>
           `https://api.themoviedb.org/3/movie/${idFilm}?api_key=${this.apiKey}&language=en-US`,
+        
       );
-
-      
-      // console.log(createURL);
       return createURL;
     } catch (err) {
       console.log(err);

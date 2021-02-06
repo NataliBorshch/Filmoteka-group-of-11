@@ -20,7 +20,7 @@
           <li><span class="vote-accent">{{vote_average}}</span> / <span class="vote">{{vote_count}}</span></li>
           <li>{{popularity}}</li>
           <li class="modal__content-title info">{{original_title}}</li>
-          <li>{{#myGenger}}{{name}} {{/myGenger}}</li>
+          <li>{{#each genres}}{{name}} {{/each}}</li>
         </ul>
       </div>
       <h3 class="modal__content-title secondary">About</h3>
@@ -30,6 +30,7 @@
         <button class="btn-modal" id="watch-add" data-action="watched">add to Watched</button>
         <button class="btn-modal" id="queue-add" data-action="queue">add to queue</button>
       </div>
+      
     </div>
   </div>
 </div>
