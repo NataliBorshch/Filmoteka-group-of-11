@@ -1,9 +1,10 @@
 export const refs = {
-  Array:[],
   refsInput: document.getElementById('input'),
   navRefs: document.getElementById('nav'),
   formRef: document.querySelector('.form-search'),
   bntLibraryRef: document.querySelector('.library-btn'),
+  watchBtn:document.getElementById('watch-btn'),
+  queueBtn:document.getElementById('queue-btn'),
   linkHome: document.querySelector('.home'),
   linkLibrary: document.querySelector('.library'),
   headerImgRef: document.querySelector('.header-img'),
@@ -13,4 +14,7 @@ export const refs = {
   detailsRefs: document.getElementById('list-details'),
   modalRefs: document.getElementById('modal'),
   widthWindow:document.body.clientWidth,
+  libraryList: document.getElementsByClassName('library'),
+  watchedButton: document.getElementsByClassName('js-btn-watched'),
+  queueButton: document.getElementsByClassName('js-btn-queue'),
 };
