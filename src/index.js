@@ -6,6 +6,7 @@ import { hideSlider, showSlider } from './js/spinner';
 import TemplatesLibrary from './templates/myFilmLibraryPage.hbs';
 import FetchQueryApiService from './js/service.js';
 import { getdetailsPage, createDatails } from './js/filmDetailsPage';
+import './js/changeTheme';
 
 const full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
 
