@@ -1,6 +1,6 @@
 
 import movieGalleryMarkup from '../templates/chosenFilm.hbs';
-import {refs} from './refs';
+// import {refs} from './refs';
 import {createDatails} from './filmDetailsPage';
 
 
@@ -30,8 +30,11 @@ import {createDatails} from './filmDetailsPage';
   
   } else {
     plase.innerHTML = '';
+    
     templates = movieGalleryMarkup(queueMovieCards)
   }
+
+  console.log(templates)
   return createDatails(plase,templates);
 }
 

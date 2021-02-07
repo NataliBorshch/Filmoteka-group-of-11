@@ -11,16 +11,23 @@ import CreateNumberItems from './slicePage'
 
 
 
-let watchedMovieCards = localStorage.getItem('watch')
-? JSON.parse(localStorage.getItem('watch'))
-: [];
+// let watchedMovieCards = localStorage.getItem('watch')
+// ? JSON.parse(localStorage.getItem('watch'))
+// : [];
 
-let queueMovieCards = localStorage.getItem('queue')
-? JSON.parse(localStorage.getItem('queue'))
-: [];
+// console.log(watchedMovieCards)
+
+// let queueMovieCards = localStorage.getItem('queue')
+// ? JSON.parse(localStorage.getItem('queue'))
+// : [];
+
+
+// console.log(queueMovieCards)
 
 
 // console.log(parseW)
+
+console.log(parseW)
 
 export default function createClassList(event) {
   if (event.target.nodeName !== 'A') {
@@ -54,8 +61,9 @@ ArrayUrl.map(ele=>{
       if (event.target.id !== 'watch-btn'){
         return;
       }
-      addWatchedFilmList(refs.GalleryRefs , watchedMovieCards)
+      addWatchedFilmList(refs.GalleryRefs , parseW)
     })
+
     refs.queueBtn.addEventListener('click', event=>{
       event.preventDefault();
       refs.queueBtn.classList.add('activ')
@@ -63,8 +71,8 @@ ArrayUrl.map(ele=>{
       if (event.target.id !== 'queue-btn'){
         return;
       }
-      // console.log('покажи queue')
-      addQueueFilmList(refs.GalleryRefs , queueMovieCards)
+      console.log('покажи queue')
+      addQueueFilmList(refs.GalleryRefs , parseQ)
     })
     
     refs.formRef.classList.add('is-hidden');
@@ -75,7 +83,7 @@ ArrayUrl.map(ele=>{
     refs.headerImgRef.classList.add('library-background');
     refs.watchBtn.classList.add('activ')
     refs.queueBtn.classList.remove('activ')
-    addWatchedFilmList(refs.GalleryRefs , watchedMovieCards)
+    addWatchedFilmList(refs.GalleryRefs , parseW)
    
   }
   

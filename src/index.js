@@ -72,7 +72,7 @@ refs.GalleryRefs.addEventListener('click', event => {
     return;
   }
   // console.dir(event.target.id);
-  console.dir(event.target);
+  // console.dir(event.target);
   const value = event.target.id;
   getdetailsPage(value);
 });
