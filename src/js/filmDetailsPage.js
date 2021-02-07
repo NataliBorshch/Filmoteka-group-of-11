@@ -12,7 +12,6 @@ async function getdetailsPage(id) {
   const film = await response.json();
   const templateCardFilm = await TemplateDetailPage(film);
   const createCardFilm = await createDatails(refs.modalRefs, templateCardFilm);
-  
   refs.modalRefs.classList.remove('is-hidden');
   refs.modalRefs.addEventListener('click', closeModal);
   document.addEventListener('keydown', eventKeyDown);
@@ -25,10 +24,6 @@ async function getdetailsPage(id) {
   const IndexItemQ  = await ChangeTextBtnQ(parseQ,film,modalBtn.queue);
 
   modalBtn.watch.addEventListener('click',event=>{
-    event.preventDefault()   
-    if (event.target.id !=='watch-add'){
-      return;
-    }
     parseW =  JSON.parse(localStorage.getItem('watch')) || [];
     if (event.target.textContent === 'remove from watch'){
        parseW.splice(IndexItemW, 1)
