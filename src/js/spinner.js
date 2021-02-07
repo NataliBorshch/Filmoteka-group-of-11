@@ -29,3 +29,12 @@ export const spinner = new Spinner(opts).spin(refs.loader);
 // refs.loader.classList.add('is-hidden'); //выключить
 
 // refs.loader.classList.remove('is-hidden'); // включить
+
+export  function hideSlider(){
+  refs.loader.classList.add('is-hidden')
+}
+
+export function showSlider(){
+  refs.loader.classList.remove('is-hidden');
+}
+

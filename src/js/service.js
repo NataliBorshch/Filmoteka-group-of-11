@@ -2,14 +2,16 @@ import { refs } from './refs';
 
 export default class FetchQueryApiService {
   constructor() {
+
     // this.number = 0;
     // this.newMassOfMovies = [];
     // this.massOfMovies = [];
     this.totalPagesForCallbacPaginator;
     this.resultsForCallbacPaginator;
+
     this.url = '';
+    this.createURL ='';
     this.page = 1;
-    // this.totalHits = 0;
     this.searchQuery = '';
     this.full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
     this.apiKey = '4f9c0875fb3e036244791a873d8888e9';
@@ -29,7 +31,7 @@ export default class FetchQueryApiService {
       refs.GalleryRefs.innerHTML = '';
       this.massOfMovies = [];
     }
-    if (searchQuery) {
+    if (searchQuery && searchQuery!='') {
       this.url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${searchQuery}&page=${this.page}&include_adult=false`;
     } else {
       this.url = `https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
@@ -47,14 +49,15 @@ export default class FetchQueryApiService {
       let filmsResponse = await response.json();
       let filmsResultsId = await filmsResponse.results.map(elem => elem.id);
 
-      let createURL = filmsResultsId.map(
+      this.createURL = filmsResultsId.map(
         idFilm =>
           `https://api.themoviedb.org/3/movie/${idFilm}?api_key=${this.apiKey}&language=en-US`,
       );
       this.totalPagesForCallbacPaginator = filmsResponse.total_pages;
       this.resultsForCallbacPaginator = filmsResponse.results;
 
-      return createURL;
+      this.url='';
+      return this.createURL;
     } catch (err) {
       console.log(err);
     }

@@ -1,5 +1,5 @@
 
-{{!-- {{#each this}} --}}
+{{#each this}}
 <li class="movie-card">
   <img class="movie-card__poster film-image" src="https://image.tmdb.org/t/p/w500{{poster_path}}" 
    onerror="this.onerror=null;this.src='https://ik.imagekit.io/s2fpg15d4rx/6681924_preview_zRAT1xpCD.png';" 
@@ -7,8 +7,7 @@
   <h3 class="movie-card__title">{{title}}</h3>
   <ul class="movie-card__info">
 
-      <li class="movie-card__genre">{{genres}}
-        {{!-- {{#each genres}}{{name}} {{/each}} --}}
+      <li class="movie-card__genre">{{#each genres}}{{name}} {{/each}}
     <li class="movie-card__year">
       {{release_date}}
     </li>
@@ -18,4 +17,22 @@
   </ul>
 </li>
 
-{{!-- {{/each}} --}}
+{{/each}}
+
+
+
+
+
+
+
+
+            
+
+             
+
+
+    
+
+
+
+ 

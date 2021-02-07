@@ -1,40 +1,35 @@
-
 ul {
   list-style: none;
 }
+
 .btn-modal {
   margin: 0;
   background-color: inherit;
   color: $black;
   min-width: 136px;
   padding: 20px 10px;
-  margin-left: 15px;
   border: 1px solid $black;
   border-radius: 5px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.33px;
   text-transform: uppercase;
 
   &:hover,
-&:active,
-&:focus{
-  background-color: $accent;
-  border: 1px solid $accent;
-  outline: inherit;
-  color:$white;
+  &:active,
+  &:focus {
+    background-color: $accent;
+    border: 1px solid $accent;
+    outline: inherit;
+    color: $white;
+  }
+
+  &:first-child {
+    @include for-size(desktop) {
+      margin-right: 15px;
+    }
+  }
 }
-
- 
-  // ​ &:first-child {
-  //   @include for-size(desktop) {
-  //     margin-right: 15px;
-  //   }
-  // }
-}
-
-
-
 
 .modal__content-title {
   margin: 30px 0 20px;
@@ -42,47 +37,63 @@ ul {
   color: $black;
   font-size: 20px;
   line-height: 1.17;
+
   @include for-size(tablet-landscape) {
     margin-top: 0;
     font-size: 30px;
   }
+
   &.info {
     margin: 0;
     font-size: 12px;
     line-height: 1.33;
   }
+
   &.secondary {
     margin-top: 20px;
     font-size: 12px;
     line-height: 1.33;
   }
 }
+
 .modal__content-info {
+  padding: 0;
+  margin: 0;
   display: flex;
   font-size: 12px;
   line-height: 1.33;
+
   &.name {
     color: $light-grey;
     margin-right: 40px;
+
+    @include for-size(tablet-landscape) {
+      margin-right: 83px;
+    }
   }
+
   &.name,
   &.value {
     display: block;
-    ​ & > li:not(:last-child) {
+
+    & > li:not(:last-child) {
       margin-bottom: 10px;
     }
   }
 }
+
 .modal__content {
-  margin-left: 30px;
   &-decsription {
+    margin: 0;
     font-size: 12px;
     line-height: 1.67;
   }
+
   &-button {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+
     @include for-size(tablet-landscape) {
       margin-top: 20px;
     }
@@ -91,13 +102,7 @@ ul {
     }
   }
 }
-.vote-accent {
-  color: $white;
-  background: $accent;
-  border-radius: 5px;
-  border: 5px solid inherit;
-  padding: 1px 10px;
-}
+
 .modal {
   position: fixed;
   top: 0;
@@ -105,8 +110,10 @@ ul {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.61);
+  color: $black;
   z-index: 2;
-  //   overflow: scroll;
+
+  overflow-y: scroll;
 
   @include for-size(tablet-landscape-1) {
     padding-top: 100px;
@@ -116,41 +123,69 @@ ul {
     opacity: 0;
     pointer-events: none;
   }
+
+  &__poster,
+  &__content {
+    width: 100%;
+
+    @include for-size(tablet-landscape) {
+      width: calc((100% - 30px) / 2);
+    }
+  }
+
+  &__poster {
+    @include for-size(tablet-landscape) {
+      margin-right: 30px;
+    }
+  }
 }
 
 .box-modal {
   background-color: $white;
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 50%;
-  padding: 70px;
-  overflow: auto;
-
- max-width: 90%;
-height: 90%;
-  //   overflow: scroll;
+  padding: 20px;
+  overflow-y: scroll;
+  width: 300px;
+  height: auto;
+  max-width: 100%;
   transform: translate(-50%, -50%);
-  display: flex;
   z-index: 2000;
-  @include for-size(tablet-landscape){
-    padding: 35px;
+  @include for-size(tablet-landscape) {
+    display: flex;
+    top: 90%;
+    // max-width: 90%;
+    width: 700px;
+    padding: 30px;
   }
 
-  
+  @include for-size(desktop) {
+    max-width: 900px;
+    padding: 40px;
+    top: 50%;
+    // max-width: 70%;
+  }
 }
 
-
-.modal-img {
-  max-width: 400px;
-  height: auto;
-  display: block;
-    background: url(../images/film.jpg);
-    background-size: contain;
-  
-}
-
-
-
-.info-film{
+.info-film {
   display: flex;
+}
+
+.animation-open {
+  -webkit-animation-name: zoom-in;
+     -webkit-animation-duration: 0.6s;
+     animation-name: zoom-in;
+     animation-duration: 0.6s;
+ }
+
+
+ .modal-img {
+  // max-height: auto;
+  display: block;
+  background-size: contain;
+  // max-width: 100%;
+  max-width: auto;
+  max-height: 100%;
+  border-radius: 10px;
 }
