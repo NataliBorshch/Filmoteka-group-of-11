@@ -29,11 +29,14 @@ async function getdetailsPage(id) {
        parseW.splice(IndexItemW, 1)
       localStorage.setItem('watch', JSON.stringify(parseW))
       event.target.textContent='add to Watched';  
+      modalBtn.watch.classList.remove('activ')
     }
     else{
       parseW.push(film)
       localStorage.setItem('watch', JSON.stringify(parseW))
       ChangeTextBtnW(parseW, film, modalBtn.watch)
+      modalBtn.watch.classList.add('activ')
+      event.target.textContent ==='remove from watch';
     }
   });
 
@@ -43,6 +46,7 @@ async function getdetailsPage(id) {
     if (event.target.textContent === 'remove from queue'){
        parseQ.splice(IndexItemQ, 1)
        event.target.textContent === 'add to queue';
+       modalBtn.queue.classList.remove('activ')
       localStorage.setItem('queue', JSON.stringify(parseQ))
       ChangeTextBtnQ(parseQ, film, modalBtn.queue)
     }
@@ -50,6 +54,7 @@ async function getdetailsPage(id) {
       parseQ.push(film)
       ChangeTextBtnQ(parseQ, film, modalBtn.queue)
       event.target.textContent === 'remove from queue';
+      modalBtn.queue.classList.add('activ')
       localStorage.setItem('queue', JSON.stringify(parseQ))
     }
   });
@@ -61,10 +66,12 @@ function ChangeTextBtnW(parseJson, film,btnWatch){
   let indexW = arrayId.indexOf(film.id)
   if (indexW === -1 ){
     btnWatch.textContent = 'add to Watched';
+    btnWatch.classList.remove('activ')
     return;
   }
   else{
     btnWatch.textContent = 'remove from watch';
+    btnWatch.classList.add('activ')
   }
   return indexW;
 }
@@ -75,10 +82,12 @@ function ChangeTextBtnQ(parseJson, film,btn){
   let indexQ = arrayId.indexOf(film.id)
   if (indexQ === -1 ){
     btn.textContent = 'add to queue';
+    btn.classList.remove('activ')
     return;
   }
   else{
     btn.textContent = 'remove from queue';
+    btn.classList.add('activ')
   }
   return indexQ;
 }

@@ -16,7 +16,7 @@ ul {
   text-transform: uppercase;
 
   &:hover,
-  &:active,
+  // &:active,
   &:focus {
     background-color: $accent;
     border: 1px solid $accent;
@@ -165,6 +165,13 @@ ul {
     padding: 40px;
     top: 50%;
     // max-width: 70%;
+  }
+
+  .activ{
+    background-color: $accent;
+    border: 1px solid $accent;
+    outline: inherit;
+    color: $white;
   }
 }
 
