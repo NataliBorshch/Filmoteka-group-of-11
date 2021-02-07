@@ -1,8 +1,8 @@
-// import placeholder from './spinner';
+import spinner from './spinner';
 import { refs } from './refs';
 
-refs.loader.classList.add('is-hidden');
-// const listElement = document.querySelector('.js-card'); //основной блок с карточками фильмов
+// const listElement = document.querySelector('.box-library'); //основной блок с карточками фильмов
+const listElement = refs.GalleryRefs;
 const paginationContainer = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
@@ -17,7 +17,7 @@ function resetCurrentPage() {
 }
 
 // главная функция для рендера pagination. Callback - функция для работы с fetch (зависит от раздела, где рисуем pagination)
-export function renderPagination(totalPages, listItems, callback, searchQuery) {
+export function renderPagination(totalPages, results, callback, searchQuery) {
   paginationContainer.innerHTML = '';
   resetCurrentPage();
   arrowLeft.removeEventListener('click', onArrowLeftClick);
@@ -98,11 +98,10 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
   function paginationButton(page, items) {
     let button = document.createElement('button');
     button.innerText = page;
-
     if (currentPage == page) button.classList.add('active');
 
     button.addEventListener('click', function () {
-      warningField.textContent = ``;
+      // warningField.textContent = ``;
       refs.loader.classList.remove('is-hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage = page;
@@ -112,20 +111,20 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
       current_btn.classList.remove('active');
 
       button.classList.add('active');
-      setupPagination(listItems, paginationContainer, rows);
+      setupPagination(results, paginationContainer, rows);
       hideExtremeButtons(totalPages);
     });
 
     return button;
   }
-
+  // console.log(paginationContainer);
   // ф-кция для отслеживания кликов по стрелке влево
   function onArrowLeftClick() {
     if (currentPage > 1) {
       refs.loader.classList.remove('is-hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage--;
-      setupPagination(listItems, paginationContainer, rows);
+      setupPagination(results, paginationContainer, rows);
       callback(listElement, currentPage, searchQuery);
     }
 
@@ -139,14 +138,14 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
       refs.loader.classList.remove('is-hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage++;
-      setupPagination(listItems, paginationContainer, rows);
+      setupPagination(results, paginationContainer, rows);
       callback(listElement, currentPage, searchQuery);
     }
     disableArrowBtn(totalPages);
     hideExtremeButtons(totalPages);
   }
 
-  setupPagination(listItems, paginationContainer, rows);
+  setupPagination(results, paginationContainer, rows);
   arrowLeft.onclick = onArrowLeftClick;
   arrowRight.onclick = onArrowRightClick;
 
@@ -156,27 +155,25 @@ export function renderPagination(totalPages, listItems, callback, searchQuery) {
 
 // прячет первую и последнюю страницу по бокам для мобильных гаджетов с маленьким экраном
 function hideExtremeButtons(totalPages) {
-  //   try {
-  //     if (
-  //       /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
-  //         navigator.userAgent,
-  //       )
-  //     ) {
-  // код для мобильных устройств
-  const allPaginationBtns = document.querySelectorAll('#pagination button');
-  if (currentPage > 3) {
-    allPaginationBtns[0].classList.add('hide');
-  } else {
-    allPaginationBtns[0].classList.remove('hide');
-  }
+  try {
+    if (refs.widthWindow < 768) {
+      // код для мобильных устройств
+      const allPaginationBtns = document.querySelectorAll('#pagination button');
+      if (currentPage > 3) {
+        allPaginationBtns[0].classList.add('hide');
+      } else {
+        allPaginationBtns[0].classList.remove('hide');
+      }
 
-  if (currentPage < totalPages - 3) {
-    allPaginationBtns[allPaginationBtns.length - 1].classList.add('hide');
-  } else {
-    allPaginationBtns[allPaginationBtns.length - 1].classList.remove('hide');
-  }
-  // }
-  //   } catch (error) {}
+      if (currentPage < totalPages - 3) {
+        allPaginationBtns[allPaginationBtns.length - 1].classList.add('hide');
+      } else {
+        allPaginationBtns[allPaginationBtns.length - 1].classList.remove(
+          'hide',
+        );
+      }
+    }
+  } catch (error) {}
 }
 
 paginationContainer.addEventListener('click', disableArrowBtnAfterPageClick);

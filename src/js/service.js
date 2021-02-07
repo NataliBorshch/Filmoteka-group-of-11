@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import { renderPagination } from './pagination';
 
 export default class FetchQueryApiService {
   constructor() {
@@ -47,11 +48,19 @@ export default class FetchQueryApiService {
           `https://api.themoviedb.org/3/movie/${idFilm}?api_key=${this.apiKey}&language=en-US`,
         
       );
+
       this.url='';
       return this.createURL;
     } catch (err) {
       console.log(err);
     }
+  }
+  async displayNewList(wraper, page, searchQuery) {
+    wraper.innerHTML = '';
+    this.pageNum = page;
+    console.log(pageNum);
+    this.query = searchQuery;
+    return fetchArticles(query);
   }
 
   incrementPage() {
@@ -66,4 +75,17 @@ export default class FetchQueryApiService {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+  get pageNum() {
+    return this.page;
+  }
+  set pageNum(newPage) {
+    this.page = newPage;
+  }
 }
+
+// function displayNewList(wraper, page, searchQuery) {
+//   wraper.innerHTML = '';
+//   this.pageNum = page;
+//   this.query = searchQuery;
+//   return fetchArticles();
+// }
