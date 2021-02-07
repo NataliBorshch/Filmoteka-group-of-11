@@ -8,6 +8,8 @@ import FetchQueryApiService from './js/service.js';
 import { getdetailsPage, createDatails } from './js/filmDetailsPage';
 import './js/changeTheme';
 
+import { renderPagination } from './js/pagination';
+
 const full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
 
 const fetchQueryApiService = new FetchQueryApiService();
@@ -18,6 +20,7 @@ fetchQueryApiService.fetchArticles('').then(data => {
   ArrayUrl.map(ele => {
     fetch(ele)
       .then(response => response.json())
+
       .then(async data => {
         let id = await data.id;
         let genres = await data.genres.map(el => el.name);
@@ -50,6 +53,12 @@ fetchQueryApiService.fetchArticles('').then(data => {
       })
       .catch(err => console.log(err));
   });
+  renderPagination(
+    fetchQueryApiService.totalPagesForCallbacPaginator, //?
+    fetchQueryApiService.resultsForCallbacPaginator, //?
+    displayNewList,
+    searchQuery,
+  );
 });
 
 // отправляем запрос по сабмину формы
@@ -118,4 +127,16 @@ refs.GalleryRefs.addEventListener('click', event => {
   getdetailsPage(value);
 });
 
+
+// console.log(refs);
+
+// колбек функция для отрисовки пагинации
+function displayNewList(wraper, page, searchQuery) {
+  wraper.innerHTML = '';
+  fetchQueryApiService.pageNum = page;
+  fetchQueryApiService.query = searchQuery;
+  return fetchQueryApiService.fetchArticles();
+}
+
 setTimeout(hideSlider, 500);
+
