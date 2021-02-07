@@ -2,21 +2,23 @@ import './sass/main.scss';
 import { refs } from './js/refs';
 import curentPage from './js/initialHomePage';
 
-import TemplatesLibrary   from './templates/myFilmLibraryPage.hbs';
+import TemplatesLibrary from './templates/myFilmLibraryPage.hbs';
 
 import FetchQueryApiService from './js/service.js';
-import { getdetailsPage  , createDatails } from './js/filmDetailsPage';
+import { getdetailsPage, createDatails } from './js/filmDetailsPage';
 
 const full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
 const fetchQueryApiService = new FetchQueryApiService();
-fetchQueryApiService.fetchArticles('').then(data=>{
- data.map(ele=>{
-   fetch(ele).then(response=>response.json()).then(data=>{
-     console.log(data)
-     createDatails(refs.GalleryRefs,TemplatesLibrary(data))
-   })
- })
-})
+fetchQueryApiService.fetchArticles('').then(data => {
+  data.map(ele => {
+    fetch(ele)
+      .then(response => response.json())
+      .then(data => {
+        // console.log();
+        createDatails(refs.GalleryRefs, TemplatesLibrary(data));
+      });
+  });
+});
 // отправляем запрос по сабмину формы
 
 refs.formRef.addEventListener('submit', event => {
@@ -28,9 +30,9 @@ refs.formRef.addEventListener('submit', event => {
       fetch(ele)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
-          const newArray= [];
- createDatails(refs.GalleryRefs,TemplatesLibrary(data))
+          // console.log(data);
+          const newArray = [];
+          createDatails(refs.GalleryRefs, TemplatesLibrary(data));
 
           let myGenger = data.genres.map(el => el.name);
           let backdrop_path = full_URL_Image + data.backdrop_path;
@@ -66,7 +68,6 @@ refs.navRefs.addEventListener('click', event => {
   curentPage(event);
 });
 
-
 // открытие и закрытие модалки
 
 refs.GalleryRefs.addEventListener('click', event => {
@@ -81,4 +82,3 @@ refs.GalleryRefs.addEventListener('click', event => {
 });
 
 // console.log(refs);
-

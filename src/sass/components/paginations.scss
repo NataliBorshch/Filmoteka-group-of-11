@@ -16,7 +16,7 @@
   }
 
   .list .item:hover {
-    background-color: rgb(0, 0, 0, 0.05);
+    background-color: $black;
   }
 }
 
@@ -77,12 +77,12 @@
 }
 
 .arrow_left {
-  background-image: url('../../images/arrow-left.svg');
+  background-image: url('../images/arrow-left.svg');
   background-repeat: no-repeat;
 }
 
 .arrow_right {
-  background-image: url('../../images/arrow-right.svg');
+  background-image: url('../images/arrow-right.svg');
   background-repeat: no-repeat;
 }
 
