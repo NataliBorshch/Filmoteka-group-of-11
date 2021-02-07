@@ -6,6 +6,8 @@ export default class FetchQueryApiService {
     // this.number = 0;
     // this.newMassOfMovies = [];
     // this.massOfMovies = [];
+    this.totalPagesForCallbacPaginator;
+    this.resultsForCallbacPaginator;
     this.url = '';
     this.page = 1;
     // this.totalHits = 0;
@@ -50,26 +52,30 @@ export default class FetchQueryApiService {
         idFilm =>
           `https://api.themoviedb.org/3/movie/${idFilm}?api_key=${this.apiKey}&language=en-US`,
       );
-      refs.loader.classList.add('is-hidden'); //выключить спинер
-      renderPagination(
-        filmsResponse.total_pages,
-        filmsResponse.results,
-        this.displayNewList,
-        searchQuery,
-      );
+      // console.log(filmsResponse.total_pages);
+      // console.log(filmsResponse.results);
+      this.totalPagesForCallbacPaginator = filmsResponse.total_pages;
+      this.resultsForCallbacPaginator = filmsResponse.results;
+
+      // refs.loader.classList.add('is-hidden'); //выключить спинер
+      // renderPagination(
+      //   filmsResponse.total_pages,
+      //   filmsResponse.results,
+      //   displayNewList,
+      //   searchQuery,
+      // );
 
       return createURL;
     } catch (err) {
       console.log(err);
     }
   }
-  async displayNewList(wraper, page, searchQuery) {
-    wraper.innerHTML = '';
-    this.pageNum = page;
-    console.log(pageNum);
-    this.query = searchQuery;
-    return fetchArticles(query);
-  }
+  // async displayNewList(wraper, page, searchQuery) {
+  //   wraper.innerHTML = '';
+  //   this.pageNum = page;
+  //   this.query = searchQuery;
+  //   return fetchArticles();
+  // }
 
   incrementPage() {
     this.page += 1;
