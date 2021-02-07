@@ -49,8 +49,11 @@
   &__info {
     padding: 0;
     margin: 0;
-    display: flex;
+     display: flex;
+     flex-wrap: wrap;
     color: $accent;
+    
+
   }
 
   &__year {
@@ -69,6 +72,10 @@
     background-color: $accent;
     margin-left: 5px;
     margin-right: 5px;
+  }
+  &__genre{
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &:not(:last-child) {

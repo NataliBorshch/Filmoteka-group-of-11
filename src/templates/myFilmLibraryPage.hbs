@@ -7,7 +7,8 @@
   <h3 class="movie-card__title">{{title}}</h3>
   <ul class="movie-card__info">
 
-      <li class="movie-card__genre">{{#each genres}}{{name}} {{/each}}
+      <li class="movie-card__genre">{{genres}}
+        {{!-- {{#each genres}}{{name}} {{/each}} --}}
     <li class="movie-card__year">
       {{release_date}}
     </li>

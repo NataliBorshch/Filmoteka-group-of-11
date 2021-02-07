@@ -22,15 +22,46 @@ export default function createClassList(event) {
     refs.headerImgRef.classList.add('home-background');
     refs.GalleryRefs.innerHTML='';
     const fetchQueryApiService = new FetchQueryApiService();
-fetchQueryApiService.fetchArticles('').then(data=>{
-  const windowInnerWidth = window.innerWidth;
- const ArrayUrl =  CreateNumberItems(data , windowInnerWidth);
-ArrayUrl.map(ele=>{
-   fetch(ele).then(response=>response.json()).then(data=>{
-     createDatails(refs.GalleryRefs,TemplatesLibrary(data))
-   })
- })
-})
+    fetchQueryApiService.fetchArticles('').then(data => {
+      const windowInnerWidth = window.innerWidth;
+      const ArrayUrl = CreateNumberItems(data, windowInnerWidth);
+      ArrayUrl.map(ele => {
+        fetch(ele)
+          .then(response => response.json())
+          .then(async data => {
+            let id = await data.id;
+            let genres = await data.genres.map(el => el.name);
+            let backdrop_path = await data.backdrop_path;
+            let original_title = await data.original_title;
+            let overview = await data.overview;
+            let popularity = await data.popularity;
+            let poster_path = await data.poster_path;
+            let release_date = await data.release_date.slice(0, 4);
+            let title = await data.title;
+            let vote_average = await data.vote_average;
+            let vote_count = await data.vote_count;
+    
+            createDatails(
+              refs.GalleryRefs,
+              TemplatesLibrary({
+                id,
+                genres,
+                backdrop_path,
+                original_title,
+                overview,
+                popularity,
+                poster_path,
+                release_date,
+                title,
+                vote_average,
+                vote_count,
+              }),
+            );
+          })
+          .catch(err => console.log(err));
+      });
+    });
+
    
   }
   if (event.target.ariaLabel === 'library-page') {
