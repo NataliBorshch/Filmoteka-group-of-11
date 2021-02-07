@@ -57,7 +57,7 @@ fetchQueryApiService.fetchArticles('').then(data => {
     fetchQueryApiService.totalPagesForCallbacPaginator, //?
     fetchQueryApiService.resultsForCallbacPaginator, //?
     displayNewList,
-    searchQuery,
+    fetchQueryApiService.searchQuery,
   );
 });
 
@@ -67,6 +67,7 @@ refs.formRef.addEventListener('submit', event => {
   event.preventDefault();
   let value = refs.refsInput.value.trim() || '';
   fetchQueryApiService.fetchArticles(value).then(data => {
+    console.log(value);
     refs.GalleryRefs.innerHTML = '';
     const windowInnerWidth = window.innerWidth;
     const ArrayUrl = CreateNumberItems(data, windowInnerWidth);
@@ -127,16 +128,53 @@ refs.GalleryRefs.addEventListener('click', event => {
   getdetailsPage(value);
 });
 
-
 // console.log(refs);
 
 // колбек функция для отрисовки пагинации
 function displayNewList(wraper, page, searchQuery) {
+  // if() {} проверка
   wraper.innerHTML = '';
   fetchQueryApiService.pageNum = page;
   fetchQueryApiService.query = searchQuery;
-  return fetchQueryApiService.fetchArticles();
+  return fetchQueryApiService.fetchArticles().then(data => {
+    const windowInnerWidth = window.innerWidth;
+    const ArrayUrl = CreateNumberItems(data, windowInnerWidth);
+    ArrayUrl.map(ele => {
+      fetch(ele)
+        .then(response => response.json())
+        .then(async data => {
+          let id = await data.id;
+          let genres = await data.genres.map(el => el.name);
+          let backdrop_path = await data.backdrop_path;
+          let original_title = await data.original_title;
+          let overview = await data.overview;
+          let popularity = await data.popularity;
+          let poster_path = await data.poster_path;
+          let release_date = await data.release_date.slice(0, 4);
+          let title = await data.title;
+          let vote_average = await data.vote_average;
+          let vote_count = await data.vote_count;
+
+          createDatails(
+            refs.GalleryRefs,
+            TemplatesLibrary({
+              id,
+              genres,
+              backdrop_path,
+              original_title,
+              overview,
+              popularity,
+              poster_path,
+              release_date,
+              title,
+              vote_average,
+              vote_count,
+            }),
+          );
+        })
+        .catch(err => console.log(err));
+    });
+  });
 }
 
 setTimeout(hideSlider, 500);
-
