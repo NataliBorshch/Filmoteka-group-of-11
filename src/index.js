@@ -15,7 +15,8 @@ fetchQueryApiService.fetchArticles('').then(data=>{
   const windowInnerWidth = window.innerWidth;
  const ArrayUrl =  CreateNumberItems(data , windowInnerWidth);
 ArrayUrl.map(ele=>{
-   fetch(ele).then(response=>response.json()).then(data=>{
+   fetch(ele).then(response=>response.json()).then(data=>{  
+    // refs.GalleryRefs.innerHTML='';   
      createDatails(refs.GalleryRefs,TemplatesLibrary(data))
    })
  })
@@ -25,8 +26,9 @@ ArrayUrl.map(ele=>{
 
 refs.formRef.addEventListener('submit', event => {
   event.preventDefault();
-  let value = refs.refsInput.value;
+  let value = refs.refsInput.value.trim()||'';
   fetchQueryApiService.fetchArticles(value).then(data => {
+    refs.GalleryRefs.innerHTML='';
     const windowInnerWidth = window.innerWidth;
     const ArrayUrl =  CreateNumberItems(data , windowInnerWidth);
     // console.log(data);
