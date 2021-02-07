@@ -9,26 +9,6 @@ import { refs } from './refs';
 import FetchQueryApiService from './service.js';
 import CreateNumberItems from './slicePage'
 
-
-
-// let watchedMovieCards = localStorage.getItem('watch')
-// ? JSON.parse(localStorage.getItem('watch'))
-// : [];
-
-// console.log(watchedMovieCards)
-
-// let queueMovieCards = localStorage.getItem('queue')
-// ? JSON.parse(localStorage.getItem('queue'))
-// : [];
-
-
-// console.log(queueMovieCards)
-
-
-// console.log(parseW)
-
-console.log(parseW)
-
 export default function createClassList(event) {
   if (event.target.nodeName !== 'A') {
     return;

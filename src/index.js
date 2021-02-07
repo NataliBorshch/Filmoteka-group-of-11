@@ -15,8 +15,10 @@ fetchQueryApiService.fetchArticles('').then(data=>{
   const windowInnerWidth = window.innerWidth;
  const ArrayUrl =  CreateNumberItems(data , windowInnerWidth);
 ArrayUrl.map(ele=>{
+  // console.log(ele)
    fetch(ele).then(response=>response.json()).then(data=>{  
     // refs.GalleryRefs.innerHTML='';   
+    // console.log(data)
      createDatails(refs.GalleryRefs,TemplatesLibrary(data))
    })
  })
