@@ -13,19 +13,14 @@ const full_URL_Image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
 const fetchQueryApiService = new FetchQueryApiService();
 fetchQueryApiService.fetchArticles('').then(data=>{
   const windowInnerWidth = window.innerWidth;
-  // console.log(windowInnerWidth)
  const ArrayUrl =  CreateNumberItems(data , windowInnerWidth);
-//  console.log(ArrayPage)
-  
 ArrayUrl.map(ele=>{
    fetch(ele).then(response=>response.json()).then(data=>{
-    //  console.log(data) 
-    //  newArray.push(data)
-    //  console.log(newArray)
      createDatails(refs.GalleryRefs,TemplatesLibrary(data))
    })
  })
 })
+
 // отправляем запрос по сабмину формы
 
 refs.formRef.addEventListener('submit', event => {

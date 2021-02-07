@@ -2,10 +2,25 @@
 import { refs } from './refs';
 
  import {parseW ,  parseQ , createDatails} from './filmDetailsPage';
-import chosenFilm from '../templates/chosenFilm.hbs';
+
+ import { addWatchedFilmList , addQueueFilmList} from './libraryPage';
+ import TemplatesLibrary   from '../templates/myFilmLibraryPage.hbs';
+ 
+import FetchQueryApiService from './service.js';
+import CreateNumberItems from './slicePage'
 
 
-console.log(parseW)
+
+let watchedMovieCards = localStorage.getItem('watch')
+? JSON.parse(localStorage.getItem('watch'))
+: [];
+
+let queueMovieCards = localStorage.getItem('queue')
+? JSON.parse(localStorage.getItem('queue'))
+: [];
+
+
+// console.log(parseW)
 
 export default function createClassList(event) {
   if (event.target.nodeName !== 'A') {
@@ -18,8 +33,39 @@ export default function createClassList(event) {
     refs.linkLibrary.classList.remove('activ');
     refs.headerImgRef.classList.remove('library-background');
     refs.headerImgRef.classList.add('home-background');
+    refs.GalleryRefs.innerHTML='';
+    const fetchQueryApiService = new FetchQueryApiService();
+fetchQueryApiService.fetchArticles('').then(data=>{
+  const windowInnerWidth = window.innerWidth;
+ const ArrayUrl =  CreateNumberItems(data , windowInnerWidth);
+ArrayUrl.map(ele=>{
+   fetch(ele).then(response=>response.json()).then(data=>{
+     createDatails(refs.GalleryRefs,TemplatesLibrary(data))
+   })
+ })
+})
+   
   }
   if (event.target.ariaLabel === 'library-page') {
+    refs.watchBtn.addEventListener('click', event=>{
+      event.preventDefault();
+      refs.watchBtn.classList.add('activ')
+      refs.queueBtn.classList.remove('activ')
+      if (event.target.id !== 'watch-btn'){
+        return;
+      }
+      addWatchedFilmList(refs.GalleryRefs , watchedMovieCards)
+    })
+    refs.queueBtn.addEventListener('click', event=>{
+      event.preventDefault();
+      refs.queueBtn.classList.add('activ')
+      refs.watchBtn.classList.remove('activ')
+      if (event.target.id !== 'queue-btn'){
+        return;
+      }
+      // console.log('покажи queue')
+      addQueueFilmList(refs.GalleryRefs , queueMovieCards)
+    })
     
     refs.formRef.classList.add('is-hidden');
     refs.bntLibraryRef.classList.remove('is-hidden');
@@ -27,60 +73,16 @@ export default function createClassList(event) {
     refs.linkHome.classList.remove('activ');
     refs.headerImgRef.classList.remove('home-background');
     refs.headerImgRef.classList.add('library-background');
-    changePage(parseW ,  parseQ  , refs.GalleryRefs )
-    // clearPage(refs.GalleryRefs);
-    // ShowLibaryWatch();
-    // currentPage(parseW, parseQ, refs.GalleryRefs)
-  //  const Templatescurrent = currentPage(parseW, parseQ);
-  //  console.log(Templatescurrent)
-    
-    
-
+    refs.watchBtn.classList.add('activ')
+    refs.queueBtn.classList.remove('activ')
+    addWatchedFilmList(refs.GalleryRefs , watchedMovieCards)
+   
   }
-  // console.dir(event.target.nodeName);
-}
-
-
-// чистим страницу
-
-function clearPage(place){
-   return place.innerHTML = '';
-}
-
-
-// опеределяем какой шаблон прийдет
-function currentTemplates(array){
-  let templates;
-  if (array.length === 0 ){
-    templates  = `<h2 class ='empty-library'>Your library has not been created</h2><img src= "https://ik.imagekit.io/s2fpg15d4rx/_______-___-___-_______-_-________-____-88703729_EYiOdImPl4fH.jpg"/>`;
-  }
-   else{
-     templates = chosenFilm(array)
-   }
-  return templates;
-}
-
-
-
-async function changePage(parseW ,  parseQ , place){
-  const clear = await clearPage(place);
-  const templatesW = await currentTemplates(parseW);
-  const templatesQ = await currentTemplates(parseQ)
-  const pageWatch = await ShowWatch(place, templatesW)
-  // console.log(templatesW)
-  // console.log(templatesQ)
-  // const createCards = await 
-
+  
 }
 
 
 
 
-function ShowWatch(plase, templates,){
-  refs.watchBtn.classList.add('activ');
-  refs.queueBtn.classList.remove('activ');
-  createDatails(plase, templates)
-}
 
 
-// function ShowQueut

@@ -33,18 +33,21 @@ async function getdetailsPage(id) {
   const IndexItemQ  = await ChangeTextBtn(parseQ,film,modalBtn.queue);
   modalBtn.watch.addEventListener('click',event=>{
     event.preventDefault()   
+    if (event.target.id !=='watch-add'){
+      return
+    }
     parseW =  JSON.parse(localStorage.getItem('watch')) || [];
     if (event.target.textContent === 'remove from watch'){
        parseW.splice(IndexItemW, 1)
       console.log(parseW)
-      ChangeTextBtn(parseW, film, modalBtn.watch)
+      ChangeTextBtnW(parseW, film, modalBtn.watch)
       localStorage.setItem('watch', JSON.stringify(parseW))
       
       
     }
     else{
       parseW.push(film)
-      ChangeTextBtn(parseW, film, modalBtn.watch)
+      ChangeTextBtnW(parseW, film, modalBtn.watch)
       localStorage.setItem('watch', JSON.stringify(parseW))
     }
   });
@@ -52,6 +55,9 @@ async function getdetailsPage(id) {
 //  кнопка добавитьв Q
   modalBtn.queue.addEventListener('click',event=>{
     event.preventDefault()   
+    if (event.target.id !=='queue-add'){
+      return
+    }
     if (event.target.textContent === 'remove from queue'){
        parseQ.splice(IndexItemQ, 1)
       console.log(parseQ)
@@ -81,7 +87,7 @@ async function getdetailsPage(id) {
 
 // находим индекс елемента который есть в локар сторедж для watch
 
-function ChangeTextBtn(parseJson, film,btnWatch){
+function ChangeTextBtnW(parseJson, film,btnWatch){
   if (parseJson.length < 1){
     btnWatch.textContent = 'add to Watched'
     return;

@@ -14,4 +14,7 @@ export const refs = {
   detailsRefs: document.getElementById('list-details'),
   modalRefs: document.getElementById('modal'),
   widthWindow:document.body.clientWidth,
+  libraryList: document.getElementsByClassName('library'),
+  watchedButton: document.getElementsByClassName('js-btn-watched'),
+  queueButton: document.getElementsByClassName('js-btn-queue'),
 };

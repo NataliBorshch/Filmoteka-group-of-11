@@ -149,7 +149,7 @@
 
 
 // если пустая библиотека
-.empty-library{
+.no-list__item{
   color: red;
   font-size: 30px;
   margin-left: auto;
@@ -157,4 +157,6 @@
   line-height: 1.76;
   font-weight: 500;
   letter-spacing: 0.06em;
+  text-align: center;
+  
 }
