@@ -29,8 +29,8 @@ async function getdetailsPage(id) {
 
 
   // кнопка добавитьв просмотренные W
-  const IndexItemW  = await ChangeTextBtn(parseW,film,modalBtn.watch);
-  const IndexItemQ  = await ChangeTextBtn(parseQ,film,modalBtn.queue);
+  const IndexItemW  = await ChangeTextBtnW(parseW,film,modalBtn.watch);
+  const IndexItemQ  = await ChangeTextBtnQ(parseQ,film,modalBtn.queue);
   modalBtn.watch.addEventListener('click',event=>{
     event.preventDefault()   
     if (event.target.id !=='watch-add'){
@@ -88,7 +88,7 @@ async function getdetailsPage(id) {
 // находим индекс елемента который есть в локар сторедж для watch
 
 function ChangeTextBtnW(parseJson, film,btnWatch){
-  if (parseJson.length < 1){
+  if (parseJson.length === 0){
     btnWatch.textContent = 'add to Watched'
     return;
   }
@@ -110,7 +110,7 @@ function ChangeTextBtnW(parseJson, film,btnWatch){
 // для Q
 
 function ChangeTextBtnQ(parseJson, film,btn){
-  if (parseJson.length < 1){
+  if (parseJson.length  === 0){
     btn.textContent = 'add to queue';
     return;
   }

@@ -6,7 +6,7 @@ import {createDatails} from './filmDetailsPage';
 
  function addWatchedFilmList(plase,watchedMovieCards) {
    let templates ;
-  if (watchedMovieCards.length == 0) {
+  if (watchedMovieCards.length === 0) {
     plase.innerHTML = '';
      templates = `<h2 class="no-list__item">“You do not have watched movies. Add them.”</h2>
     <img src= "https://ik.imagekit.io/s2fpg15d4rx/_______-___-___-_______-_-________-____-88703729_EYiOdImPl4fH.jpg"/>`
