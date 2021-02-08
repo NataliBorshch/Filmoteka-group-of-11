@@ -15,9 +15,8 @@ ul {
   line-height: 1.33px;
   text-transform: uppercase;
 
-  &:hover,
-  // &:active,
-  &:focus {
+  &:hover
+  {
     background-color: $accent;
     border: 1px solid $accent;
     outline: inherit;
