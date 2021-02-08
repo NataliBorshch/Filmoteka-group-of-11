@@ -27,6 +27,8 @@
   &:hover,
   &:active,
   &:focus {
+    transform: scale(1.05);
+    border-radius: 10px;
     box-shadow: 0px 1px 1px -1px rgba(212, 89, 18, 0.12),
       0px 4px 4px -4px rgba(212, 89, 18, 0.12),
       1px 6px 6px -6px rgba(212, 89, 18, 0.3);
