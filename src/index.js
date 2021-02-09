@@ -54,8 +54,8 @@ fetchQueryApiService.fetchArticles('').then(data => {
       .catch(err => console.log(err));
   });
   renderPagination(
-    fetchQueryApiService.totalPagesForCallbacPaginator, //?
-    fetchQueryApiService.resultsForCallbacPaginator, //?
+    fetchQueryApiService.totalPagesForCallbacPaginator,
+    fetchQueryApiService.resultsForCallbacPaginator,
     displayNewList,
     fetchQueryApiService.searchQuery,
   );
@@ -108,6 +108,12 @@ refs.formRef.addEventListener('submit', event => {
         })
         .catch(err => console.log(err));
     });
+    renderPagination(
+      fetchQueryApiService.totalPagesForCallbacPaginator,
+      fetchQueryApiService.resultsForCallbacPaginator,
+      displayNewList,
+      fetchQueryApiService.searchQuery,
+    );
   });
 });
 
@@ -132,7 +138,6 @@ refs.GalleryRefs.addEventListener('click', event => {
 
 // колбек функция для отрисовки пагинации
 function displayNewList(wraper, page, searchQuery) {
-  // if() {} проверка
   wraper.innerHTML = '';
   fetchQueryApiService.pageNum = page;
   fetchQueryApiService.query = searchQuery;

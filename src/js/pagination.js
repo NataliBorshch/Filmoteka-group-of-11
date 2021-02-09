@@ -1,4 +1,5 @@
 import { refs } from './refs';
+import { hideSlider } from './spinner';
 
 const paginationContainer = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
@@ -81,8 +82,7 @@ export function renderPagination(totalPages, results, callback, searchQuery) {
         wrapper.insertBefore(threeDotsEl, wrapper[1]);
       }
     }
-
-    refs.loader.classList.add('is-hidden');
+    setTimeout(hideSlider, 500);
   }
 
   // создает троеточия для pagination
