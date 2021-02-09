@@ -6,13 +6,14 @@
 // }
 
 .movies-list {
+  padding: 0;
+
   @include for-size(tablet-landscape) {
     display: flex;
     flex-wrap: wrap;
     padding: 60px 0px;
     margin: 0;
     list-style: none;
-    background-color: rgba(0, 225, 255, 0.76);
   }
 }
 
@@ -22,7 +23,16 @@
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.06em;
-  background-color: red;
+  padding-bottom: 10px;
+  &:hover,
+  &:active,
+  &:focus {
+    transform: scale(1.05);
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px -1px rgba(212, 89, 18, 0.12),
+      0px 4px 4px -4px rgba(212, 89, 18, 0.12),
+      1px 6px 6px -6px rgba(212, 89, 18, 0.3);
+  }
 
   &__poster {
     max-height: 398px;
@@ -36,7 +46,10 @@
   }
 
   &__info {
+    padding: 0;
+    margin: 0;
     display: flex;
+    align-items: center;
     color: $accent;
   }
 
@@ -56,6 +69,14 @@
     background-color: $accent;
     margin-left: 5px;
     margin-right: 5px;
+  }
+
+  &__genre {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    width: 50%;
   }
 
   &:not(:last-child) {
@@ -110,13 +131,37 @@
   border-radius: 5px;
   border: 5px solid inherit;
   padding: 1px 10px;
+  height: 17px;
 }
 
-
- 
-
-.film-image{
+.film-image {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  border-radius: 10px;
+}
+
+.vote {
+  color: $black;
+  background: $footer-color;
+  border-radius: 5px;
+  border: 5px solid inherit;
+  padding: 1px 10px;
+
+  &-accent {
+    color: $white;
+    background: $accent;
+  }
+}
+
+// если пустая библиотека
+.no-list__item {
+  color: red;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.76;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: center;
 }

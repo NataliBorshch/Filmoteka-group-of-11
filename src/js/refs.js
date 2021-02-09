@@ -3,12 +3,18 @@ export const refs = {
   navRefs: document.getElementById('nav'),
   formRef: document.querySelector('.form-search'),
   bntLibraryRef: document.querySelector('.library-btn'),
+  watchBtn:document.getElementById('watch-btn'),
+  queueBtn:document.getElementById('queue-btn'),
   linkHome: document.querySelector('.home'),
   linkLibrary: document.querySelector('.library'),
   headerImgRef: document.querySelector('.header-img'),
   LogoRefs: document.querySelector('.logo-home'),
   GalleryRefs: document.querySelector('.list-library'),
+  loader: document.getElementById('loading'), //spinner
   detailsRefs: document.getElementById('list-details'),
   modalRefs: document.getElementById('modal'),
   widthWindow:document.body.clientWidth,
+  libraryList: document.getElementsByClassName('library'),
+  watchedButton: document.getElementsByClassName('js-btn-watched'),
+  queueButton: document.getElementsByClassName('js-btn-queue'),
 };

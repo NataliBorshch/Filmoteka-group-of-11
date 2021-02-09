@@ -14,6 +14,29 @@
   <body>
     <header class="header">
       <div class="container header-img home-background">
+         <!-- переключатель темы  -->
+         <div class="toolbar">
+          <div class="theme-switch">
+            <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+              <use href="./images/sprite.svg#sun"></use>
+            </svg>
+        
+            <div class="theme-switch__control">
+              <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+                aria-label="Переключить между тёмной и светлой темой" />
+              <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+              </label>
+              <div aria-hidden="true" class="theme-switch__marker"></div>
+            </div>
+        
+            <svg class="theme-switch__icon" aria-label="Иконка луны">
+              <use href="./images/sprite.svg#moon"></use>
+            </svg>
+          </div>
+        </div>
+
+        <!-- переключательтемы -->
+
         <div class="header-box">
           <div class="nav" id="nav">
             <div class="box-logo">
@@ -66,9 +89,11 @@
             </button>
           </form>
           <div class="library-btn is-hidden">
-            <button class="btn activ">Watched</button>
 
-            <button class="btn">queue</button>
+
+            <button class="btn  js-btn-watched" id="watch-btn">Watched</button>
+
+            <button class="btn js-btn-queue" id='queue-btn'>queue</button>
           </div>
         </div>
       </div>
@@ -79,10 +104,23 @@
           <ul class="list-library movies-list"></ul>
         </div>
       </div>
+
+      <!-- Spinner -->
+      <div classs="spinner" id="loading"></div>
+      <!-- Paginator -->
+      <div class="pagination__container">
+        <div class="pagination__container_pages">
+          <div class="pag-arrow arrow_left"></div>
+          <div class="pagenumbers" id="pagination"></div>
+          <div class="pag-arrow arrow_right"></div>
+        </div>
+      </div>
+
       <div id="list-details">
         <div class="modal is-hidden" id="modal"></div>
       </div>
     </main>
+
     <footer>
       <div class="container">
         <div class="box-footer">
@@ -97,6 +135,6 @@
           </a>
         </div>
       </div>
-    </footer>    
+    </footer>
   </body>
 </html>

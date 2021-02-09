@@ -1,22 +1,17 @@
 import { refs } from './refs';
 import TemplateDetailPage from '../templates/modal.hbs';
+import { eventKeyDown, closeModal } from './closeModal';
 
-// console.log(refs);
-const arrayIdQ = [];
-const arrayIdW = [];
-
+export let parseW = JSON.parse(localStorage.getItem('watch')) || [];
+export let parseQ = JSON.parse(localStorage.getItem('queue')) || [];
 
 async function getdetailsPage(id) {
-  // event.preventDefault();
   const key = '42c4fa9c05708253e8c2f9a05f447e85';
-  // console.log(id);
   const urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`;
   const response = await fetch(urlId);
-
   const film = await response.json();
   const templateCardFilm = await TemplateDetailPage(film);
   const createCardFilm = await createDatails(refs.modalRefs, templateCardFilm);
-
   refs.modalRefs.classList.remove('is-hidden');
   refs.modalRefs.addEventListener('click', closeModal);
   document.addEventListener('keydown', eventKeyDown);
@@ -25,53 +20,79 @@ async function getdetailsPage(id) {
     queue: document.getElementById('queue-add'),
     boxBtn: document.getElementById('modal-box-bnt'),
   };
-  // console.log(modalBtn);
+  const IndexItemW = await ChangeTextBtnW(parseW, film, modalBtn.watch);
+  const IndexItemQ = await ChangeTextBtnQ(parseQ, film, modalBtn.queue);
 
-  modalBtn.boxBtn.addEventListener('click', event => {
-    if (event.target.nodeName !== 'BUTTON') {
-      return;
+  modalBtn.watch.addEventListener('click',event=>{
+    parseW =  JSON.parse(localStorage.getItem('watch')) || [];
+    if (event.target.textContent === 'remove from watch'){
+       parseW.splice(IndexItemW, 1)
+      localStorage.setItem('watch', JSON.stringify(parseW))
+      event.target.textContent='add to Watched';  
+      modalBtn.watch.classList.remove('activ')
     }
-    if (event.target.id === 'queue-add') {
-      localStorage.setItem('queue', `${id}`);
-      const getQueue = localStorage.getItem('queue');
-      event.target.textContent = 'remove to queue ';
-      arrayIdQ.push(Number(getQueue));
+    else{
+      parseW.push(film)
+      localStorage.setItem('watch', JSON.stringify(parseW))
+      ChangeTextBtnW(parseW, film, modalBtn.watch)
+      modalBtn.watch.classList.add('activ')
+      event.target.textContent ==='remove from watch';
     }
-    if (event.target.id === 'watch-add') {
-      localStorage.setItem('watch', `${id}`);
-      const getWatch = localStorage.getItem('watch');
-      event.target.textContent = 'remove to watch ';
-      arrayIdW.push(Number(getWatch));
+  });
+
+//  кнопка  Q
+  modalBtn.queue.addEventListener('click',event=>{
+    event.preventDefault()   
+    if (event.target.textContent === 'remove from queue'){
+       parseQ.splice(IndexItemQ, 1)
+       event.target.textContent === 'add to queue';
+       modalBtn.queue.classList.remove('activ')
+      localStorage.setItem('queue', JSON.stringify(parseQ))
+      ChangeTextBtnQ(parseQ, film, modalBtn.queue)
     }
-    // console.log(id);
-    // console.dir(event.target);
-    console.log(arrayIdW);
-    console.log(arrayIdQ);
+    else{
+      parseQ.push(film)
+      ChangeTextBtnQ(parseQ, film, modalBtn.queue)
+      event.target.textContent === 'remove from queue';
+      modalBtn.queue.classList.add('activ')
+      localStorage.setItem('queue', JSON.stringify(parseQ))
+    }
   });
 }
 
+// находим индекс елемента который есть в локар сторедж для watch
+function ChangeTextBtnW(parseJson, film, btnWatch) {
+  let arrayId = parseJson.map(ele => ele.id);
+  let indexW = arrayId.indexOf(film.id);
+  if (indexW === -1) {
+    btnWatch.textContent = 'add to Watched';
+    btnWatch.classList.remove('activ')
+    return;
+  } else {
+    btnWatch.textContent = 'remove from watch';
+    btnWatch.classList.add('activ')
+  }
+  return indexW;
+}
+
+// для Q
+function ChangeTextBtnQ(parseJson, film, btn) {
+  let arrayId = parseJson.map(ele => ele.id);
+  let indexQ = arrayId.indexOf(film.id);
+  if (indexQ === -1) {
+    btn.textContent = 'add to queue';
+    btn.classList.remove('activ')
+    return;
+  } else {
+    btn.textContent = 'remove from queue';
+    btn.classList.add('activ')
+  }
+  return indexQ;
+}
+
+// создаем разметку
 function createDatails(place, tepmlate) {
   return place.insertAdjacentHTML('beforeend', tepmlate);
 }
 
-const closeModal = event => {
-  if (event.target.id !== 'modal') {
-    return;
-  }
-  const modal = document.getElementById('modal');
-  modal.classList.add('is-hidden');
-  document.removeEventListener('keydown', eventKeyDown);
-  refs.modalRefs.innerHTML = '';
-};
-
-const eventKeyDown = event => {
-  if (event.code !== 'Escape') {
-    return;
-  }
-  modal.classList.add('is-hidden');
-  refs.modalRefs.innerHTML = '';
-};
-
-// console.log(urlId);
-
-export { getdetailsPage  };
+export { getdetailsPage, createDatails };
