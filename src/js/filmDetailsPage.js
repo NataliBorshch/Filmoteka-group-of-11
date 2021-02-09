@@ -1,9 +1,9 @@
 import { refs } from './refs';
 import TemplateDetailPage from '../templates/modal.hbs';
-import {eventKeyDown , closeModal } from './closeModal';
+import { eventKeyDown, closeModal } from './closeModal';
 
- export let parseW =  JSON.parse(localStorage.getItem('watch')) || [] ;
- export let parseQ = JSON.parse(localStorage.getItem('queue')) || [];
+export let parseW = JSON.parse(localStorage.getItem('watch')) || [];
+export let parseQ = JSON.parse(localStorage.getItem('queue')) || [];
 
 async function getdetailsPage(id) {
   const key = '42c4fa9c05708253e8c2f9a05f447e85';
@@ -19,9 +19,9 @@ async function getdetailsPage(id) {
     watch: document.getElementById('watch-add'),
     queue: document.getElementById('queue-add'),
     boxBtn: document.getElementById('modal-box-bnt'),
-  }; 
-  const IndexItemW  = await ChangeTextBtnW(parseW,film,modalBtn.watch);
-  const IndexItemQ  = await ChangeTextBtnQ(parseQ,film,modalBtn.queue);
+  };
+  const IndexItemW = await ChangeTextBtnW(parseW, film, modalBtn.watch);
+  const IndexItemQ = await ChangeTextBtnQ(parseQ, film, modalBtn.queue);
 
   modalBtn.watch.addEventListener('click',event=>{
     parseW =  JSON.parse(localStorage.getItem('watch')) || [];
@@ -61,15 +61,14 @@ async function getdetailsPage(id) {
 }
 
 // находим индекс елемента который есть в локар сторедж для watch
-function ChangeTextBtnW(parseJson, film,btnWatch){
-  let arrayId = parseJson.map(ele=>ele.id)
-  let indexW = arrayId.indexOf(film.id)
-  if (indexW === -1 ){
+function ChangeTextBtnW(parseJson, film, btnWatch) {
+  let arrayId = parseJson.map(ele => ele.id);
+  let indexW = arrayId.indexOf(film.id);
+  if (indexW === -1) {
     btnWatch.textContent = 'add to Watched';
     btnWatch.classList.remove('activ')
     return;
-  }
-  else{
+  } else {
     btnWatch.textContent = 'remove from watch';
     btnWatch.classList.add('activ')
   }
@@ -77,15 +76,14 @@ function ChangeTextBtnW(parseJson, film,btnWatch){
 }
 
 // для Q
-function ChangeTextBtnQ(parseJson, film,btn){
-  let  arrayId  = parseJson.map(ele=>ele.id)
-  let indexQ = arrayId.indexOf(film.id)
-  if (indexQ === -1 ){
+function ChangeTextBtnQ(parseJson, film, btn) {
+  let arrayId = parseJson.map(ele => ele.id);
+  let indexQ = arrayId.indexOf(film.id);
+  if (indexQ === -1) {
     btn.textContent = 'add to queue';
     btn.classList.remove('activ')
     return;
-  }
-  else{
+  } else {
     btn.textContent = 'remove from queue';
     btn.classList.add('activ')
   }
@@ -97,4 +95,4 @@ function createDatails(place, tepmlate) {
   return place.insertAdjacentHTML('beforeend', tepmlate);
 }
 
-export { getdetailsPage , createDatails};
+export { getdetailsPage, createDatails };

@@ -1,12 +1,11 @@
-import spinner from './spinner';
 import { refs } from './refs';
+import { hideSlider } from './spinner';
 
-// const listElement = document.querySelector('.box-library'); //основной блок с карточками фильмов
-const listElement = refs.GalleryRefs;
 const paginationContainer = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
-// const warningField = document.querySelector('.header-warning'); //блок куда выводится ошибка поиска
+
+const listElement = refs.GalleryRefs;
 let currentPage = 1;
 let pageCount;
 const pagesOnWindow = 5;
@@ -16,7 +15,7 @@ function resetCurrentPage() {
   currentPage = 1;
 }
 
-// главная функция для рендера pagination. Callback - функция для работы с fetch (зависит от раздела, где рисуем pagination)
+// главная функция для рендера pagination. Callback - функция для работы с fetch
 export function renderPagination(totalPages, results, callback, searchQuery) {
   paginationContainer.innerHTML = '';
   resetCurrentPage();
@@ -83,8 +82,7 @@ export function renderPagination(totalPages, results, callback, searchQuery) {
         wrapper.insertBefore(threeDotsEl, wrapper[1]);
       }
     }
-
-    refs.loader.classList.add('is-hidden');
+    setTimeout(hideSlider, 500);
   }
 
   // создает троеточия для pagination
@@ -101,7 +99,6 @@ export function renderPagination(totalPages, results, callback, searchQuery) {
     if (currentPage == page) button.classList.add('active');
 
     button.addEventListener('click', function () {
-      // warningField.textContent = ``;
       refs.loader.classList.remove('is-hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage = page;
@@ -117,7 +114,7 @@ export function renderPagination(totalPages, results, callback, searchQuery) {
 
     return button;
   }
-  // console.log(paginationContainer);
+
   // ф-кция для отслеживания кликов по стрелке влево
   function onArrowLeftClick() {
     if (currentPage > 1) {
