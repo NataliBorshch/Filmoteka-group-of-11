@@ -23,32 +23,39 @@ async function getdetailsPage(id) {
   const IndexItemW = await ChangeTextBtnW(parseW, film, modalBtn.watch);
   const IndexItemQ = await ChangeTextBtnQ(parseQ, film, modalBtn.queue);
 
-  modalBtn.watch.addEventListener('click', event => {
-    parseW = JSON.parse(localStorage.getItem('watch')) || [];
-    if (event.target.textContent === 'remove from watch') {
-      parseW.splice(IndexItemW, 1);
-      localStorage.setItem('watch', JSON.stringify(parseW));
-      event.target.textContent = 'add to Watched';
-    } else {
-      parseW.push(film);
-      localStorage.setItem('watch', JSON.stringify(parseW));
-      ChangeTextBtnW(parseW, film, modalBtn.watch);
+  modalBtn.watch.addEventListener('click',event=>{
+    parseW =  JSON.parse(localStorage.getItem('watch')) || [];
+    if (event.target.textContent === 'remove from watch'){
+       parseW.splice(IndexItemW, 1)
+      localStorage.setItem('watch', JSON.stringify(parseW))
+      event.target.textContent='add to Watched';  
+      modalBtn.watch.classList.remove('activ')
+    }
+    else{
+      parseW.push(film)
+      localStorage.setItem('watch', JSON.stringify(parseW))
+      ChangeTextBtnW(parseW, film, modalBtn.watch)
+      modalBtn.watch.classList.add('activ')
+      event.target.textContent ==='remove from watch';
     }
   });
 
-  //  кнопка  Q
-  modalBtn.queue.addEventListener('click', event => {
-    event.preventDefault();
-    if (event.target.textContent === 'remove from queue') {
-      parseQ.splice(IndexItemQ, 1);
-      event.target.textContent === 'add to queue';
-      localStorage.setItem('queue', JSON.stringify(parseQ));
-      ChangeTextBtnQ(parseQ, film, modalBtn.queue);
-    } else {
-      parseQ.push(film);
-      ChangeTextBtnQ(parseQ, film, modalBtn.queue);
+//  кнопка  Q
+  modalBtn.queue.addEventListener('click',event=>{
+    event.preventDefault()   
+    if (event.target.textContent === 'remove from queue'){
+       parseQ.splice(IndexItemQ, 1)
+       event.target.textContent === 'add to queue';
+       modalBtn.queue.classList.remove('activ')
+      localStorage.setItem('queue', JSON.stringify(parseQ))
+      ChangeTextBtnQ(parseQ, film, modalBtn.queue)
+    }
+    else{
+      parseQ.push(film)
+      ChangeTextBtnQ(parseQ, film, modalBtn.queue)
       event.target.textContent === 'remove from queue';
-      localStorage.setItem('queue', JSON.stringify(parseQ));
+      modalBtn.queue.classList.add('activ')
+      localStorage.setItem('queue', JSON.stringify(parseQ))
     }
   });
 }
@@ -59,9 +66,11 @@ function ChangeTextBtnW(parseJson, film, btnWatch) {
   let indexW = arrayId.indexOf(film.id);
   if (indexW === -1) {
     btnWatch.textContent = 'add to Watched';
+    btnWatch.classList.remove('activ')
     return;
   } else {
     btnWatch.textContent = 'remove from watch';
+    btnWatch.classList.add('activ')
   }
   return indexW;
 }
@@ -72,9 +81,11 @@ function ChangeTextBtnQ(parseJson, film, btn) {
   let indexQ = arrayId.indexOf(film.id);
   if (indexQ === -1) {
     btn.textContent = 'add to queue';
+    btn.classList.remove('activ')
     return;
   } else {
     btn.textContent = 'remove from queue';
+    btn.classList.add('activ')
   }
   return indexQ;
 }
